@@ -1,0 +1,148 @@
+/* Ama's Plant Corner - Website Styles */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e8e8e8;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+#header {
+  background-color: #0066cc;
+  color: white;
+  padding: 10px 20px;
+  width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#logo {
+  float: left;
+  font-size: 22px;
+  padding: 5px 0;
+}
+
+#nav {
+  float: right;
+  padding-top: 8px;
+}
+
+#nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#nav ul li {
+  display: inline;
+  margin-left: 20px;
+}
+
+#nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+div#header div#nav ul li a:hover {
+  color: red !important;
+}
+
+#banner {
+  background-color: #009900;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  width: 900px;
+  margin: 0 auto;
+}
+
+#banner h1 {
+  font-size: 31px;
+  margin-bottom: 8px;
+}
+
+#banner p {
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  background-color: #ff6600;
+  color: white;
+  padding: 8px 22px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.btn:hover {
+  background-color: #cc5500;
+}
+
+#content {
+  width: 900px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  overflow: hidden;
+}
+
+#main {
+  float: left;
+  width: 610px;
+}
+
+#sidebar {
+  float: right;
+  width: 240px;
+  background-color: #f0f0f0;
+  padding: 10px 15px;
+}
+
+h4 {
+  font-size: 16px;
+  color: #0066cc;
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 4px;
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+
+.products {
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.product-item {
+  float: left;
+  width: 190px;
+  margin-right: 20px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.product-item img {
+  display: block;
+  margin: 0 auto;
+  background-color: #cccccc;
+}
+
+a {
+  color: #0066cc;
+}
+
+#sidebar a {
+  color: #009900;
+}
+
+#footer {
+  background-color: #333333;
+  color: #cccccc;
+  text-align: center;
+  padding: 12px;
+  font-size: 11px;
+  width: 900px;
+  margin: 0 auto;
+}

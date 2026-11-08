@@ -1,0 +1,12 @@
+/* ============================================
+   LAYOUT
+   Ama's Plant Corner
+   ============================================
+   This file defines the global layout system:
+   containers, grid structures, section spacing,
+   and responsive breakpoint adjustments.
+
+   Mobile-first: base styles target small screens,
+   @media (min-width: ...) adds complexity upward.
+   ============================================ */
+
