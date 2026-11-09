@@ -20,7 +20,18 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="index.html" class="site-header__logo">Ama's Plant Corner</a>
+      <a href="index.html" class="site-header__logo">
+        <span class="brand-lockup">
+          <svg class="brand-mark site-header__mark" aria-hidden="true" viewBox="0 0 48 48">
+            <path d="M24 25c-8 0-13-5-13-13 8 0 13 5 13 13Z"/>
+            <path d="M24 22c0-8 5-13 13-13 0 8-5 13-13 13Z"/>
+            <path d="M24 18v12"/>
+            <path d="M14 30h20l-3 12H17l-3-12Z"/>
+            <path d="M12 27h24"/>
+          </svg>
+          <span>Ama's Plant Corner</span>
+        </span>
+      </a>
 
       <div class="site-header__actions">
         <!-- Mobile Call Button -->
@@ -148,29 +159,47 @@
   <!-- Site Footer -->
   <footer class="site-footer">
     <div class="container site-footer__inner">
-      <div>
-        <p class="site-footer__brand">Ama's Plant Corner</p>
-        <p class="site-footer__text">14 Okaishie Lane, Accra, Ghana</p>
-        <p class="site-footer__text">Open Monday to Saturday: 8:00am – 6:00pm (Closed Sundays)</p>
+      <div class="site-footer__brand-block">
+        <a class="site-footer__brand" href="index.html">
+          <span class="brand-lockup">
+            <svg class="brand-mark site-footer__mark" aria-hidden="true" viewBox="0 0 48 48">
+              <path d="M24 25c-8 0-13-5-13-13 8 0 13 5 13 13Z"/>
+              <path d="M24 22c0-8 5-13 13-13 0 8-5 13-13 13Z"/>
+              <path d="M24 18v12"/>
+              <path d="M14 30h20l-3 12H17l-3-12Z"/>
+              <path d="M12 27h24"/>
+            </svg>
+            <span>Ama's Plant Corner</span>
+          </span>
+        </a>
+        <p class="site-footer__tagline">A little more green, a little more joy.</p>
       </div>
 
-      <nav aria-label="Footer navigation">
+      <nav class="site-footer__navigation" aria-label="Footer navigation">
+        <h2 class="site-footer__heading">Explore</h2>
         <ul class="site-footer__links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#care">Plant Care</a></li>
+          <li><a href="shop.html">Shop plants</a></li>
+          <li><a href="index.html#about">About Ama</a></li>
+          <li><a href="index.html#care">Plant care</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="site-footer__visit">
+        <h2 class="site-footer__heading">Visit the shop</h2>
+        <address>14 Okaishie Lane<br>Accra, Ghana</address>
+        <p>Monday–Saturday, 8:00am–6:00pm<br>Closed Sundays</p>
+        <a class="site-footer__call" href="tel:0244000000">Call 0244 000 000</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=14+Okaishie+Lane%2C+Accra%2C+Ghana" target="_blank" rel="noopener noreferrer">Get directions</a>
+      </div>
     </div>
 
-    <div class="container" style="margin-top: var(--space-lg); padding-top: var(--space-md); border-top: 1px solid rgba(255, 255, 255, 0.15); text-align: center;">
-      <p class="site-footer__text" style="font-size: var(--font-size-small);">&copy; 2026 Ama's Plant Corner. All rights reserved.</p>
+    <div class="container site-footer__bottom">
+      <p>&copy; 2026 Ama's Plant Corner. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="js/script.js"></script>
 </body>
 </html>
-

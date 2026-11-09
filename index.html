@@ -20,7 +20,16 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a href="#" class="site-header__logo">Ama's Plant Corner</a>
+      <a href="index.html" class="site-header__logo">
+        <svg class="brand-mark site-header__mark" aria-hidden="true" viewBox="0 0 48 48">
+          <path d="M24 25c-8 0-13-5-13-13 8 0 13 5 13 13Z"/>
+          <path d="M24 22c0-8 5-13 13-13 0 8-5 13-13 13Z"/>
+          <path d="M24 18v12"/>
+          <path d="M14 30h20l-3 12H17l-3-12Z"/>
+          <path d="M12 27h24"/>
+        </svg>
+        <span>Ama's Plant Corner</span>
+      </a>
 
       <div class="site-header__actions">
         <!-- Mobile Call Button (Direct tap for errand-runners) -->
@@ -68,23 +77,6 @@
       </div>
 
       <div class="container hero__content">
-        <!-- Live Errand Status Line for Mobile Shoppers -->
-        <div class="hero__errand-line">
-          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
-          <span>Open today until 6:00pm</span>
-          <span aria-hidden="true">·</span>
-          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-          <span>14 Okaishie Lane</span>
-          <span aria-hidden="true">·</span>
-          <a href="#contact">Get directions</a>
-        </div>
-
         <h1 id="hero-title" class="hero__heading">Welcome to Ama's Plant Corner!</h1>
         <p class="hero__subtitle">Your #1 destination for plants in the neighborhood! Fresh, calming greenery and friendly care advice for your home and office in Accra.</p>
 
@@ -108,46 +100,52 @@
 
         <!-- 3 Photographic Category Cards (Indoor, Outdoor, Accessories) -->
         <div class="category-showcase">
-          <!-- Card 1: Indoor Plants (Office / Home) -->
+          <!-- Card 1: Indoor Plants -->
           <a href="shop.html#indoor" class="category-card" aria-label="Explore Indoor Plants">
-            <img src="images/products/indoor-plants.svg" alt="Indoor plants in a minimalist modern room" class="category-card__image">
+            <img src="images/indoor-plant.jpg" alt="Indoor plants displayed on a stand in a bright room" class="category-card__image">
             <div class="category-card__overlay"></div>
             <div class="category-card__content">
               <h3 class="category-card__title">Indoor Plants</h3>
             </div>
           </a>
 
-          <!-- Card 2: Outdoor Plants (Garden / Balcony) -->
+          <!-- Card 2: Outdoor Plants -->
           <a href="shop.html#outdoor" class="category-card" aria-label="Explore Outdoor Plants">
-            <img src="images/products/outdoor-plants.svg" alt="Outdoor plants on a sunny patio garden" class="category-card__image">
+            <img src="images/outdoor-plant.jpg" alt="Potted garden plants arranged in a living space" class="category-card__image">
             <div class="category-card__overlay"></div>
             <div class="category-card__content">
               <h3 class="category-card__title">Outdoor Plants</h3>
             </div>
           </a>
 
-          <!-- Card 3: Accessories (Pots & Soil) -->
+          <!-- Card 3: Accessories Plants -->
           <a href="shop.html#accessories" class="category-card" aria-label="Explore Pots, Planters & Soil Accessories">
-            <img src="images/products/accessories.svg" alt="Ceramic pots, planters, and accessories in a living room" class="category-card__image">
+            <img src="images/accessories.avif" alt="House plants in pots arranged in a bright living room" class="category-card__image">
             <div class="category-card__overlay"></div>
             <div class="category-card__content">
               <h3 class="category-card__title">Accessories</h3>
             </div>
           </a>
         </div>
-
-        <!-- First-Time Plant Owner Reassurance Banner -->
-        <div class="reassurance-banner">
-          <p class="reassurance-banner__title">🌱 First-Time Plant Owner? You're in Safe Hands.</p>
-          <p class="reassurance-banner__text">
-            Every plant comes with straightforward watering and light guidance. You can visit 14 Okaishie Lane or ask Ama anytime without feeling intimidated.
-          </p>
-        </div>
       </div>
     </section>
 
-    <h4>About Ama</h4>
-    <p style="font-size: 11px;">Ama has been running her plant shop in the neighborhood for over 5 years now. She loves plants and wants to help everyone keep their plants alive and thriving. If you are not sure what plant is right for you, just ask her!</p>
+    <section id="about" class="section section--alt" aria-labelledby="about-title">
+      <div class="container about">
+        <figure class="about__image-wrapper">
+          <img src="images/hero/hero-image2.jpg" alt="A plant enthusiast caring for leafy plants in a bright room" class="about__image">
+          <figcaption class="about__image-caption">A little care goes a long way.</figcaption>
+        </figure>
+
+        <div class="about__content">
+          <p class="about__eyebrow">About Us</p>
+          <h2 id="about-title" class="about__title">A warm welcome, and room to grow.</h2>
+          <p class="about__text">For more than five years, Ama has welcomed neighbours into her plant shop and helped them find greenery that feels right for their homes and routines. She believes plant care should feel rewarding, not intimidating.</p>
+          <p class="about__text">Whether you're choosing your very first plant or learning how to help one thrive, Ama is always happy to share practical advice and answer your questions.</p>
+          <a href="#contact" class="btn btn--primary about__link">Come say hello</a>
+        </div>
+      </div>
+    </section>
 
     <h4>Plant Care Tips</h4>
     <p style="font-size: 11px;">Click on a topic below to read the care guide for that type of plant.</p>
@@ -238,9 +236,46 @@
 
 </div>
 
-<div id="footer">
-  <p>Copyright &copy; 2021 Ama's Plant Corner. All rights reserved.</p>
-</div>
+<footer id="footer" class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand-block">
+      <a class="site-footer__brand" href="index.html">
+        <svg class="brand-mark site-footer__mark" aria-hidden="true" viewBox="0 0 48 48">
+          <path d="M24 25c-8 0-13-5-13-13 8 0 13 5 13 13Z"/>
+          <path d="M24 22c0-8 5-13 13-13 0 8-5 13-13 13Z"/>
+          <path d="M24 18v12"/>
+          <path d="M14 30h20l-3 12H17l-3-12Z"/>
+          <path d="M12 27h24"/>
+        </svg>
+        <span>Ama's Plant Corner</span>
+      </a>
+      <p class="site-footer__tagline">A little more green, a little more joy.</p>
+    </div>
+
+    <nav class="site-footer__navigation" aria-label="Footer navigation">
+      <h2 class="site-footer__heading">Explore</h2>
+      <ul class="site-footer__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop plants</a></li>
+        <li><a href="index.html#about">About Ama</a></li>
+        <li><a href="index.html#care">Plant care</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-footer__visit">
+      <h2 class="site-footer__heading">Visit the shop</h2>
+      <address>14 Okaishie Lane<br>Accra, Ghana</address>
+      <p>Monday–Saturday, 8:00am–6:00pm<br>Closed Sundays</p>
+      <a class="site-footer__call" href="tel:0244000000">Call 0244 000 000</a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=14+Okaishie+Lane%2C+Accra%2C+Ghana" target="_blank" rel="noopener noreferrer">Get directions</a>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <p>&copy; 2026 Ama's Plant Corner. All rights reserved.</p>
+  </div>
+</footer>
 
 <script src="js/script.js"></script>
 </body>
