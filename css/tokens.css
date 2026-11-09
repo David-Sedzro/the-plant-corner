@@ -1,16 +1,37 @@
 :root {
-  /* Brand Colours */
+  /* Brand Colours (Strict 3-Colour Palette Foundation) */
   --color-primary: #254B38;
   --color-secondary: #8FA68E;
   --color-background: #F8F6EF;
 
-  /* UI & Text Colours */
+  /* UI, Surface & Text Colours */
   --color-primary-dark: #1A3628;
+  --color-surface: #FFFFFF;
   --color-text-primary: #1A1A1A;
   --color-text-secondary: #4A4A4A;
   --color-text-inverse: #FFFFFF;
   --color-border: #D4D0C8;
-  --color-surface: #FFFFFF;
+  --color-border-inverse: rgba(255, 255, 255, 0.15);
+  --color-overlay-light: rgba(255, 255, 255, 0.15);
+
+  /* Social / Messaging */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1EBE5D;
+
+  /* Card System (Tied directly to brand palette) */
+  --color-card-bg: var(--color-background);
+  --color-card-title: var(--color-text-inverse);
+  --color-card-scrim: linear-gradient(to top, rgba(26, 54, 40, 0.88) 0%, rgba(37, 75, 56, 0.35) 45%, rgba(0, 0, 0, 0.0) 75%);
+  --color-card-scrim-hover: linear-gradient(to top, rgba(26, 54, 40, 0.95) 0%, rgba(37, 75, 56, 0.55) 50%, rgba(37, 75, 56, 0.10) 85%);
+
+  /* Hero Gradient */
+  --hero-gradient: linear-gradient(rgba(37, 75, 56, 0.84), rgba(26, 54, 40, 0.92));
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.16);
+  --shadow-text-card: 0 2px 8px rgba(0, 0, 0, 0.70);
 
   /* Typography — Poppins */
   --font-heading: 'Poppins', sans-serif;
@@ -25,20 +46,27 @@
   --line-height-tight: 1.25;
   --line-height-normal: 1.5;
 
-  /* Spacing */
+  /* Spacing Scale (8px system) */
+  --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 2rem;
   --space-2xl: 3rem;
+  --space-3xl: 4rem;
 
   /* Layout & Radii */
   --radius-sm: 4px;
   --radius-md: 6px;
-  --radius-lg: 8px;
+  --radius-lg: 10px;
+  --radius-pill: 9999px;
 
   --container-max: 1120px;
   --container-padding: 1rem;
   --container-min: 320px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
 }
