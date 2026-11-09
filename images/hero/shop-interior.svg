@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2D5A44"/>
+      <stop offset="100%" stop-color="#1B382B"/>
+    </linearGradient>
+    <linearGradient id="sunbeam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8F6EF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#F8F6EF" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="1600" height="900" fill="url(#bgGrad)"/>
+  
+  <!-- Greenhouse Glass Wall Framework -->
+  <line x1="200" y1="0" x2="200" y2="900" stroke="#3D6B53" stroke-width="6" opacity="0.4"/>
+  <line x1="600" y1="0" x2="600" y2="900" stroke="#3D6B53" stroke-width="6" opacity="0.4"/>
+  <line x1="1000" y1="0" x2="1000" y2="900" stroke="#3D6B53" stroke-width="6" opacity="0.4"/>
+  <line x1="1400" y1="0" x2="1400" y2="900" stroke="#3D6B53" stroke-width="6" opacity="0.4"/>
+  <line x1="0" y1="300" x2="1600" y2="300" stroke="#3D6B53" stroke-width="4" opacity="0.3"/>
+  <line x1="0" y1="600" x2="1600" y2="600" stroke="#3D6B53" stroke-width="4" opacity="0.3"/>
+
+  <!-- Warm sunlight beam -->
+  <polygon points="400,0 900,0 1500,900 800,900" fill="url(#sunbeam)"/>
+
+  <!-- Wooden Shelving & Tables -->
+  <rect x="0" y="680" width="1600" height="40" fill="#4A3525" opacity="0.6"/>
+  <rect x="0" y="720" width="1600" height="180" fill="#2E2015" opacity="0.6"/>
+
+  <!-- Plants on Display (Layered foliage) -->
+  <!-- Hanging plants -->
+  <g opacity="0.8">
+    <line x1="350" y1="0" x2="350" y2="180" stroke="#8FA68E" stroke-width="3"/>
+    <ellipse cx="350" cy="180" rx="45" ry="25" fill="#1A3628"/>
+    <path d="M310 180 Q290 280 260 360" stroke="#254B38" stroke-width="5" fill="none"/>
+    <path d="M350 190 Q340 310 320 420" stroke="#35684E" stroke-width="6" fill="none"/>
+    <path d="M380 185 Q400 290 430 380" stroke="#467C5E" stroke-width="5" fill="none"/>
+    
+    <line x1="1250" y1="0" x2="1250" y2="150" stroke="#8FA68E" stroke-width="3"/>
+    <ellipse cx="1250" cy="150" rx="50" ry="30" fill="#1A3628"/>
+    <path d="M1210 150 Q1180 270 1140 370" stroke="#254B38" stroke-width="6" fill="none"/>
+    <path d="M1250 160 Q1260 300 1280 430" stroke="#35684E" stroke-width="7" fill="none"/>
+  </g>
+
+  <!-- Big Monstera Leaves & Fiddle Leaf Figs on Table -->
+  <g opacity="0.7">
+    <!-- Potted Fiddle Leaf on left -->
+    <path d="M120 720 L150 580 L250 580 L280 720 Z" fill="#8FA68E"/>
+    <circle cx="200" cy="460" r="140" fill="#1A3628"/>
+    <circle cx="250" cy="410" r="120" fill="#254B38"/>
+    <circle cx="160" cy="380" r="100" fill="#3D6B53"/>
+
+    <!-- Monstera on right -->
+    <path d="M1320 720 L1350 590 L1450 590 L1480 720 Z" fill="#8FA68E"/>
+    <circle cx="1400" cy="480" r="150" fill="#1A3628"/>
+    <circle cx="1340" cy="420" r="130" fill="#254B38"/>
+    <circle cx="1460" cy="390" r="110" fill="#3D6B53"/>
+  </g>
+</svg>
+
