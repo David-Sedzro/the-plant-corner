@@ -1,12 +1,44 @@
-/* ============================================
-   DESIGN TOKENS
-   Ama's Plant Corner
-   ============================================
-   This file contains all CSS custom properties
-   (design tokens) for the project: colours,
-   typography, spacing, borders, shadows,
-   transitions, and layout constants.
+:root {
+  /* Brand Colours */
+  --color-primary: #254B38;
+  --color-secondary: #8FA68E;
+  --color-background: #F8F6EF;
 
-   No selectors other than :root belong here.
-   ============================================ */
+  /* UI & Text Colours */
+  --color-primary-dark: #1A3628;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #4A4A4A;
+  --color-text-inverse: #FFFFFF;
+  --color-border: #D4D0C8;
+  --color-surface: #FFFFFF;
 
+  /* Typography — Poppins */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
+  --font-size-h1: 1.75rem;
+  --font-size-h2: 1.375rem;
+  --font-size-h3: 1.125rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* Layout & Radii */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  --container-max: 1120px;
+  --container-padding: 1rem;
+  --container-min: 320px;
+}

@@ -1,12 +1,29 @@
-/* ============================================
-   LAYOUT
-   Ama's Plant Corner
-   ============================================
-   This file defines the global layout system:
-   containers, grid structures, section spacing,
-   and responsive breakpoint adjustments.
+/* Layout Rules */
 
-   Mobile-first: base styles target small screens,
-   @media (min-width: ...) adds complexity upward.
-   ============================================ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
 
+.section {
+  padding-block: var(--space-2xl);
+}
+
+.section--alt {
+  background-color: var(--color-surface);
+}
+
+/* Tablet & Desktop Adjustments */
+@media (min-width: 48em) {
+  :root {
+    --font-size-h1: 2.25rem;
+    --font-size-h2: 1.75rem;
+    --container-padding: 1.5rem;
+  }
+
+  .section {
+    padding-block: var(--space-2xl);
+  }
+}
