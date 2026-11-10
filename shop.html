@@ -59,7 +59,7 @@
           <li><a href="index.html" class="site-header__nav-link">Home</a></li>
           <li><a href="shop.html" class="site-header__nav-link site-header__nav-link--active">Shop</a></li>
           <li><a href="index.html#about" class="site-header__nav-link">About</a></li>
-          <li><a href="index.html#care" class="site-header__nav-link">Plant Care</a></li>
+          <li><a href="care-tips.html" class="site-header__nav-link">Plant Care</a></li>
           <li><a href="index.html#contact" class="site-header__nav-link">Contact</a></li>
         </ul>
       </nav>
@@ -69,87 +69,88 @@
   <!-- Main Landmark -->
   <main id="main-content">
 
-    <!-- Page Introduction Header -->
-    <section class="section" style="padding-bottom: 0;">
+    <section class="shop-page-banner" aria-labelledby="shop-page-title">
       <div class="container">
-        <div class="section-heading">
-          <h1 class="section-heading__title">Our Plants &amp; Accessories</h1>
-          <p class="section-heading__subtitle">
-            Every plant in our shop is acclimatised to Accra's coastal climate. Drop by 14 Okaishie Lane or ask Ama for personal recommendations.
-          </p>
-        </div>
-
-        <!-- Category Quick Jump Links -->
-        <nav aria-label="Product categories" style="display: flex; flex-wrap: wrap; gap: var(--space-xs); justify-content: center; margin-bottom: var(--space-xl);">
-          <a href="#all" class="btn btn--primary" style="border-radius: var(--radius-pill);">All Products</a>
-          <a href="#indoor" class="btn btn--outline" style="border-color: var(--color-primary); color: var(--color-primary); border-radius: var(--radius-pill);">Indoor Plants</a>
-          <a href="#outdoor" class="btn btn--outline" style="border-color: var(--color-primary); color: var(--color-primary); border-radius: var(--radius-pill);">Outdoor Plants</a>
-          <a href="#accessories" class="btn btn--outline" style="border-color: var(--color-primary); color: var(--color-primary); border-radius: var(--radius-pill);">Accessories</a>
+        <h1 id="shop-page-title">Plants</h1>
+        <nav class="shop-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Plants</span>
         </nav>
       </div>
     </section>
 
-    <!-- Products Catalog Section -->
-    <section id="all" class="section">
-      <div class="container">
-        <div class="product-grid products">
-          
-          <!-- Category 1: Indoor Plants -->
-          <article id="indoor" class="product-card product-item">
-            <div class="product-card__image-wrapper">
-              <img src="images/products/indoor-plants.svg" alt="Indoor snake plants and foliage in modern decorative pot" class="product-card__image">
-            </div>
-            <div class="product-card__body">
-              <span class="badge">Indoor • Low Light</span>
-              <h2 class="product-card__title" style="font-size: var(--font-size-h3);">Houseplants</h2>
-              <p class="product-card__price">Starting from GH&#8373; 25</p>
-              <p style="font-size: var(--font-size-small); color: var(--color-text-secondary); margin-top: var(--space-xs); margin-bottom: var(--space-md);">
-                Hardy varieties including Snake Plants, Pothos, and ZZ plants that thrive in gentle indirect light.
-              </p>
-              <a href="index.html#contact" class="btn btn--primary" style="width: 100%;">Inquire / Reserve</a>
-            </div>
-          </article>
+    <section id="all" class="section shop-catalog">
+      <div class="container shop-layout">
+        <aside class="shop-filters" aria-labelledby="filter-title">
+          <h2 id="filter-title" class="shop-filters__title">Filter Options</h2>
 
-          <!-- Category 2: Outdoor Plants -->
-          <article id="outdoor" class="product-card product-item">
-            <div class="product-card__image-wrapper">
-              <img src="images/products/outdoor-plants.svg" alt="Outdoor sun-loving plants and planters on sunny patio" class="product-card__image">
-            </div>
-            <div class="product-card__body">
-              <span class="badge">Outdoor • Sun Loving</span>
-              <h2 class="product-card__title" style="font-size: var(--font-size-h3);">Pots &amp; Planters</h2>
-              <p class="product-card__price">Starting from GH&#8373; 15</p>
-              <p style="font-size: var(--font-size-small); color: var(--color-text-secondary); margin-top: var(--space-xs); margin-bottom: var(--space-md);">
-                Sun-tolerant patio shrubs, outdoor foliage, and durable earthenware planters suited to Ghanaian weather.
-              </p>
-              <a href="index.html#contact" class="btn btn--primary" style="width: 100%;">Inquire / Reserve</a>
-            </div>
-          </article>
+          <div class="shop-filter-group">
+            <h3 class="shop-filter-group__title">Category</h3>
+            <nav aria-label="Product categories">
+              <ul class="shop-filter-list">
+                <li><a href="#indoor">Indoor Plants</a></li>
+                <li><a href="#outdoor">Outdoor Plants</a></li>
+                <li><a href="#accessories">Accessories</a></li>
+              </ul>
+            </nav>
+          </div>
 
-          <!-- Category 3: Soil & Accessories -->
-          <article id="accessories" class="product-card product-item">
-            <div class="product-card__image-wrapper">
-              <img src="images/products/accessories.svg" alt="Pots, organic soil mix and gardening accessories" class="product-card__image">
+          <div class="shop-filter-group">
+            <h3 class="shop-filter-group__title">Price</h3>
+            <p class="shop-filter-group__value">GH&#8373; 10 – GH&#8373; 25</p>
+            <div class="shop-price-range" aria-hidden="true">
+              <span></span>
+              <span></span>
             </div>
-            <div class="product-card__body">
-              <span class="badge">Pots, Soil &amp; Tools</span>
-              <h2 class="product-card__title" style="font-size: var(--font-size-h3);">Soil &amp; Accessories</h2>
-              <p class="product-card__price">Starting from GH&#8373; 10</p>
-              <p style="font-size: var(--font-size-small); color: var(--color-text-secondary); margin-top: var(--space-xs); margin-bottom: var(--space-md);">
-                Nutrient-rich potting mixes, perlite, moisture saucers, and repotting supplies ready for your home garden.
-              </p>
-              <a href="index.html#contact" class="btn btn--primary" style="width: 100%;">Inquire / Reserve</a>
-            </div>
-          </article>
+          </div>
+        </aside>
 
-        </div>
+        <div class="shop-results">
+          <div class="shop-results__toolbar">
+            <p class="shop-results__count">Showing 1–3 of 3 categories</p>
+            <label class="shop-sort">
+              <span>Sort by:</span>
+              <select aria-label="Sort products">
+                <option>Default sorting</option>
+              </select>
+            </label>
+          </div>
 
-        <!-- First-Time Plant Owner Reassurance Banner -->
-        <div class="reassurance-banner" style="margin-top: var(--space-2xl);">
-          <p class="reassurance-banner__title">🌱 First-Time Plant Owner? You're in Safe Hands.</p>
-          <p class="reassurance-banner__text">
-            Every plant comes with straightforward watering and light guidance. You can visit 14 Okaishie Lane or ask Ama anytime without feeling intimidated.
-          </p>
+          <div class="product-grid products">
+            <article id="indoor" class="product-card product-item">
+              <div class="product-card__image-wrapper">
+                <img src="images/indoor-plant.jpg" alt="Indoor plants arranged near a bright window" class="product-card__image">
+              </div>
+              <div class="product-card__body">
+                <span class="product-card__category">Indoor plants</span>
+                <h2 class="product-card__title">Houseplants</h2>
+                <p class="product-card__price">GH&#8373; 25</p>
+              </div>
+            </article>
+
+            <article id="outdoor" class="product-card product-item">
+              <div class="product-card__image-wrapper">
+                <img src="images/outdoor-plant.jpg" alt="Outdoor plants and planters arranged for a patio" class="product-card__image">
+              </div>
+              <div class="product-card__body">
+                <span class="product-card__category">Outdoor plants</span>
+                <h2 class="product-card__title">Pots &amp; Planters</h2>
+                <p class="product-card__price">GH&#8373; 15</p>
+              </div>
+            </article>
+
+            <article id="accessories" class="product-card product-item">
+              <div class="product-card__image-wrapper">
+                <img src="images/accessories.avif" alt="Potted plants and gardening accessories" class="product-card__image">
+              </div>
+              <div class="product-card__body">
+                <span class="product-card__category">Pots, soil &amp; tools</span>
+                <h2 class="product-card__title">Soil &amp; Accessories</h2>
+                <p class="product-card__price">GH&#8373; 10</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -173,6 +174,26 @@
           </span>
         </a>
         <p class="site-footer__tagline">A little more green, a little more joy.</p>
+        <nav class="site-footer__social" aria-label="Social media">
+          <ul class="site-footer__social-links">
+            <li>
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H7.3v3h2.8v8h3.4Z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="18" height="18" rx="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle class="site-footer__social-dot" cx="17.5" cy="6.5" r="1"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
 
       <nav class="site-footer__navigation" aria-label="Footer navigation">
@@ -181,18 +202,31 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop plants</a></li>
           <li><a href="index.html#about">About Ama</a></li>
-          <li><a href="index.html#care">Plant care</a></li>
+          <li><a href="care-tips.html">Plant care</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </nav>
 
       <div class="site-footer__visit">
         <h2 class="site-footer__heading">Visit the shop</h2>
-        <address>14 Okaishie Lane<br>Accra, Ghana</address>
-        <p>Monday–Saturday, 8:00am–6:00pm<br>Closed Sundays</p>
+        <address>
+          <svg class="icon site-footer__visit-icon" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+            <circle cx="12" cy="10" r="2.5"/>
+          </svg>
+          <span>14 Okaishie Lane<br>Accra, Ghana</span>
+        </address>
+        <p>
+          <svg class="icon site-footer__visit-icon" aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 7v5l3 2"/>
+          </svg>
+          <span>Monday–Saturday, 8:00am–6:00pm<br>Closed Sundays</span>
+        </p>
         <a class="site-footer__call" href="tel:0244000000">Call 0244 000 000</a>
         <a href="https://www.google.com/maps/search/?api=1&amp;query=14+Okaishie+Lane%2C+Accra%2C+Ghana" target="_blank" rel="noopener noreferrer">Get directions</a>
       </div>
+
     </div>
 
     <div class="container site-footer__bottom">
