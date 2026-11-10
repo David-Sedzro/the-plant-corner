@@ -201,6 +201,7 @@
 
   .site-header__actions {
     display: flex;
+    order: 2;
   }
 
   .site-header__toggle {
@@ -209,6 +210,7 @@
 
   .site-header__nav {
     display: block;
+    order: 1;
     width: auto;
     padding-top: 0;
   }
