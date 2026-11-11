@@ -1,10 +1,5 @@
-# Ama's Plant Corner
 
-A responsive website for Ama's neighbourhood plant shop at 14 Okaishie Lane, Accra, Ghana. It helps customers browse plants and accessories, find practical care advice, and contact or visit the shop.
-
-This submission is organized around the project assessment criteria: understanding the brief, applying it in the rebuild, analysing the original site, evaluating the result against Ama's needs, and creating a useful improvement for her customers.
-
-## 1. Understand the brief (20%)
+## 1. Planning
 
 ### Client and customer needs
 
@@ -14,19 +9,17 @@ The audience includes nearby shoppers using phones and people who are new to pla
 
 ### Page sketch
 
-[Open the original Figma source (the file is currently titled "Untitled")](https://www.figma.com/design/GGDLAYadqjGMbkU1E5HfmW/Untitled?node-id=0-1)
+The exported desktop and mobile homepage wireframe is included here so the design can be reviewed with the project.
 
-![Desktop and mobile wireframe sketch of the homepage layout](image.png)
-
-The sketch shows desktop and mobile homepage arrangements. The mobile version stacks the hero, product categories, About content, FAQ, contact section, and footer into a single readable flow. The desktop sketch places related content side by side where space allows.
+![Desktop and mobile wireframe sketch of the homepage layout](Sketched.png)
 
 ### Why the content is ordered this way
 
-The header and hero introduce the shop and give customers clear next steps. Product categories follow so shoppers can quickly see what Ama sells. The About section builds familiarity and trust. The FAQ gives first-time plant owners useful advice before they contact Ama. Contact and visit details remain easy to find in the lower page and footer.
+The header and hero introduce the shop and give customers clear next steps. Product categories follow so shoppers can quickly see what Ama sells. The About section introduces the shop which builds familiarity and trust. The FAQ gives first-time plant owners useful advice before they contact Ama. Contact and visit details remain easy to find in the lower page and footer.
 
 The shop catalogue, product details, and extended care advice each have their own page so customers can go directly to the information they need without making the homepage unwieldy, particularly on mobile.
 
-## 2. Apply the brief to the rebuild (15%)
+## 2. Apply the brief to the rebuild
 
 ### Pages and structure
 
@@ -48,7 +41,7 @@ The styles are split by responsibility: `css/tokens.css` contains shared design 
 - **Responsive layout:** Base styles are designed for narrow screens. `min-width` media queries progressively adjust navigation, grids, details, and forms for wider viewports.
 - **Useful actions:** Phone links use `tel:` and the footer provides a directions link, making contact and visiting more direct for local customers.
 
-## 3. Analyse the original site (25%)
+## 3. Analyse the original site
 
 Before rebuilding, I inspected the original HTML, CSS, and rendered pages. The findings below identify the root cause, evidence, and specific effect on Ama's customers.
 
@@ -82,13 +75,13 @@ Before rebuilding, I inspected the original HTML, CSS, and rendered pages. The f
 | 14 | **Navigation and social links do not lead to their intended destinations.** | The menu, "Shop Now," Facebook, and Instagram links use `href="#"`. | Customers cannot use these links to reach the catalogue or Ama's social media; the links remain on the current page instead of taking them to the intended destination. |
 | 15 | **Neither enquiry form submits or provides a result.** | Both buttons use `type="button"`, and `script.js` contains no form-handling code. | When a customer selects "Send Question" or "Send Message," no enquiry is sent and no confirmation appears, leaving them unsure whether Ama received it. |
 
-## 4. Evaluate the result against Ama's needs (20%)
+## 4. Evaluate the result against Ama's needs
 
 The highest priorities are the defects that block a customer's core tasks: using the site on a phone, identifying products, finding the right page, and contacting or visiting Ama. The rebuild addresses many of these through responsive layouts, descriptive product content and images, working internal links, a direct phone action, and a directions link. Consistent colour, type, and spacing support the welcoming presentation in the brief.
 
 ### Verification
 
-- I checked all four pages in a browser at viewport widths of 320px, 390px, 576px, 767px, 768px, 960px, 1088px, and 1440px. At those widths, no page had horizontal document overflow. The mobile navigation toggle appeared below 768px; horizontal navigation appeared at 768px and wider.
+- I checked all four pages in a browser at viewport widths of 320px, 352px, 390px, 576px, 767px, 768px, 960px, 1088px, and 1440px. At those widths, no page had horizontal document overflow. The mobile navigation toggle appeared below 768px; horizontal navigation appeared at 768px and wider.
 - The CSS breakpoints are `22em` (352px), `36em` (576px), `48em` (768px), `60em` (960px), and `68em` (1088px), assuming a 16px root font size. These are browser viewport checks, not tests on physical devices.
 - Spot checks of solid design-token colour pairs gave contrast ratios of `16.09:1` for primary text on warm cream, `8.20:1` for secondary text on warm cream, `9.80:1` for white on primary green, and `5.00:1` for sage on the dark footer green. These calculations do not cover every overlay, opacity, image, or interaction state.
 - I confirmed each page has a main landmark and skip link; all `aria-labelledby` references point to existing IDs; the care pages use native `<details>` and `<summary>`; and local image paths resolve.
@@ -97,11 +90,9 @@ The highest priorities are the defects that block a customer's core tasks: using
 ### Trade-offs and remaining limitations
 
 - The homepage contact form has labelled, required fields and browser validation, but no configured action or server endpoint. With no `method` specified, it defaults to GET and may put submitted field values in the URL. It does not deliver messages to Ama or show a success confirmation. Do not use it for real enquiries until a submission service is configured.
-- The shop category links jump to product items, but the price range and sort control are visual placeholders; they do not filter or reorder products.
+- The shop category links jump to product items, but the price range and sort control are visual placeholders; they do not filter or reorder products for now, will be implemented with jvascript later.
 - `js/script.js` is a placeholder. The mobile menu uses CSS checkbox state, and care disclosures use native browser `<details>` behavior.
 - The focus indicator and skip link are implemented as baseline keyboard-navigation support. Accessibility still needs broader manual testing across assistive technologies and real devices.
-
-These limitations matter to the business: a polished page alone is not enough if customers cannot complete an enquiry or use a control they expect to work. A production handoff should connect the form to a real service and either implement or clearly remove inactive shop controls.
 
 ## 5. Create a customer-focused improvement (20%)
 
@@ -130,9 +121,9 @@ amas-plant-corner/
 |   |-- products/
 |   |-- hero/
 |   `-- about/
-`-- image.png
+`-- Sketched.png
 ```
 
 ## Running locally
 
-No package installation or build step is required. From the project root, run `python -m http.server 8000` and open `http://localhost:8000` in a browser. Alternatively, open `index.html` directly; using a local server is recommended for consistent relative asset loading.
+in a browser. Alternatively, open `index.html` directly; using a local server is recommended for consistent relative asset loading.
