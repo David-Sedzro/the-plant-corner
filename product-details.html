@@ -1,220 +1,391 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Details | Ama's Plant Corner</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details | Ama's Plant Corner</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a href="index.html" class="site-header__logo">
-        <span class="brand-lockup">
-          <svg class="brand-mark site-header__mark" aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M14 8.536V6a4 4 0 014-4h1.5a.5.5 0 01.5.5V4a4 4 0 01-4 4 4 4 0 00-4 4 5 5 0 01-8-4 5 5 0 018 4c0 2 1 3 1 5"/>
-            <path d="m18 17-1.085 3.58A2 2 0 0115 22H9.002a2 2 0 01-1.913-1.418L6 17"/>
-            <path d="M5 17h14"/>
-          </svg>
-          <span>Ama's Plant Corner</span>
-        </span>
-      </a>
-
-      <input type="checkbox" id="nav-toggle" class="site-header__toggle-input" aria-label="Toggle navigation">
-      <div class="site-header__actions">
-        <a href="tel:0244000000" class="site-header__call" aria-label="Contact the shop by phone at 0244 000 000">
-          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-          <span>Contact</span>
-        </a>
-
-        <label for="nav-toggle" class="site-header__toggle" aria-label="Toggle navigation menu">
-          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
-            <line x1="4" x2="20" y1="12" y2="12"/>
-            <line x1="4" x2="20" y1="6" y2="6"/>
-            <line x1="4" x2="20" y1="18" y2="18"/>
-          </svg>
-        </label>
-      </div>
-      <nav class="site-header__nav" aria-label="Main navigation">
-        <ul class="site-header__nav-list">
-          <li><a href="index.html" class="site-header__nav-link">Home</a></li>
-          <li><a href="shop.html" class="site-header__nav-link site-header__nav-link--active">Shop</a></li>
-          <li><a href="index.html#about" class="site-header__nav-link">About</a></li>
-          <li><a href="care-tips.html" class="site-header__nav-link">Plant Care</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main-content">
-    <section class="shop-page-banner" aria-labelledby="details-page-title">
-      <div class="container">
-        <h1 id="details-page-title">Product Details</h1>
-        <nav class="shop-breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
-          <span aria-hidden="true">/</span>
-          <a href="shop.html">Shop</a>
-          <span aria-hidden="true">/</span>
-          <span aria-current="page">Product Details</span>
-        </nav>
-      </div>
-    </section>
-
-    <div class="container product-detail-list">
-      <section id="indoor" class="product-detail" aria-labelledby="indoor-title">
-        <div class="product-detail__layout">
-          <div class="product-detail__image-wrapper">
-            <img
-              src="images/indoor-plant.jpg"
-              alt="Illustrative photo of indoor plants grouped beside a bright window"
-              class="product-detail__image"
-              loading="lazy"
-              decoding="async"
-            >
-          </div>
-          <div class="product-detail__content">
-            <p class="product-detail__category">Indoor plants</p>
-            <h2 id="indoor-title" class="product-detail__title">Snake Plant</h2>
-            <p class="product-detail__price">GH&#8373; 25</p>
-            <p class="product-detail__description">Snake Plant for indoor spaces.</p>
-            <h3 class="product-detail__section-title">Care and suitability</h3>
-            <dl class="product-detail__facts">
-              <div><dt>Suitable for</dt><dd>Indoor spaces.</dd></div>
-              <div><dt>Watering</dt><dd>Let the potting mix dry out completely before watering again. Water thoroughly, then let excess drain; water less often in low light or cooler weather.</dd></div>
-              <div><dt>Sunlight</dt><dd>Bright, indirect light is ideal. Snake Plants tolerate lower light, but avoid prolonged harsh direct sun.</dd></div>
-              <div><dt>Soil</dt><dd>Use a loose, fast-draining potting mix, such as a cactus and succulent mix.</dd></div>
-              <div><dt>Care recommendation</dt><dd>Use a pot with drainage holes and do not leave the roots standing in water.</dd></div>
-            </dl>
-            <a class="btn btn--outline product-detail__back" href="shop.html#indoor">Back to catalogue</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="outdoor" class="product-detail" aria-labelledby="outdoor-title">
-        <div class="product-detail__layout">
-          <div class="product-detail__image-wrapper">
-            <img
-              src="images/outdoor-plant.jpg"
-              alt="Illustrative photo of leafy plants arranged in pots on a patio"
-              class="product-detail__image"
-              loading="lazy"
-              decoding="async"
-            >
-          </div>
-          <div class="product-detail__content">
-            <p class="product-detail__category">Outdoor plants</p>
-            <h2 id="outdoor-title" class="product-detail__title">Outdoor Plant</h2>
-            <p class="product-detail__price">GH&#8373; 15</p>
-            <p class="product-detail__description">Add greenery to patios, balconies, and gardens. Outdoor plants have different care needs, so adjust watering and placement to the plant and local conditions.</p>
-            <h3 class="product-detail__section-title">Care and suitability</h3>
-            <dl class="product-detail__facts">
-              <div><dt>Suitable for</dt><dd>Outdoor spaces such as patios, balconies, and gardens. Match the plant to the amount of sun, shade, and shelter available.</dd></div>
-              <div><dt>Watering</dt><dd>Check the soil regularly and water when the top 2–3 cm feels dry. Water deeply, then allow excess to drain; check more often during hot, dry weather and less during rainy periods.</dd></div>
-              <div><dt>Sunlight</dt><dd>Needs depend on the plant: sun-loving varieties need several hours of direct sun, while many leafy plants prefer bright indirect light or partial shade.</dd></div>
-              <div><dt>Soil</dt><dd>Use loose, well-draining soil. For container plants, choose a potting mix and a pot with drainage holes to prevent waterlogged roots.</dd></div>
-              <div><dt>Care recommendation</dt><dd>Protect plants from conditions they do not tolerate, and adjust watering to rainfall, heat, and how quickly the soil dries.</dd></div>
-            </dl>
-            <a class="btn btn--outline product-detail__back" href="shop.html#outdoor">Back to catalogue</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="pots" class="product-detail" aria-labelledby="pots-title">
-        <div class="product-detail__layout">
-          <div class="product-detail__image-wrapper">
-            <img
-              src="images/products/product2-image.jpg"
-              alt="Assorted plant pots and planters"
-              class="product-detail__image"
-              loading="lazy"
-              decoding="async"
-            >
-          </div>
-          <div class="product-detail__content">
-            <p class="product-detail__category">Plant pots</p>
-            <h2 id="pots-title" class="product-detail__title">Pots &amp; Planters</h2>
-            <p class="product-detail__price">GH&#8373; 15</p>
-            <p class="product-detail__description">Find a planter for your plant and space. The catalogue image is illustrative; ask Ama about the specific pots currently available.</p>
-            <h3 class="product-detail__section-title">Product information</h3>
-            <dl class="product-detail__facts">
-              <div><dt>Material</dt><dd>Confirm the material of the selected pot with Ama.</dd></div>
-              <div><dt>Available sizes</dt><dd>Confirm available sizes with Ama.</dd></div>
-              <div><dt>Drainage</dt><dd>Confirm whether the selected pot has drainage holes.</dd></div>
-              <div><dt>Recommended use</dt><dd>Confirm whether the pot is suitable for your intended indoor or outdoor use.</dd></div>
-            </dl>
-            <a class="btn btn--outline product-detail__back" href="shop.html#accessories">Back to catalogue</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="soil" class="product-detail" aria-labelledby="soil-title">
-        <div class="product-detail__layout">
-          <div class="product-detail__image-wrapper">
-            <img
-              src="images/products/product1-image.jpg"
-              alt="Potting soil in a terracotta pot"
-              class="product-detail__image"
-              loading="lazy"
-              decoding="async"
-            >
-          </div>
-          <div class="product-detail__content">
-            <p class="product-detail__category">Potting soil</p>
-            <h2 id="soil-title" class="product-detail__title">Potting Soil</h2>
-            <p class="product-detail__price">GH&#8373; 10</p>
-            <p class="product-detail__description">Listed for planting and repotting. Ask Ama which soil mix is available and whether it is suitable for your plant.</p>
-            <h3 class="product-detail__section-title">Product information</h3>
-            <dl class="product-detail__facts">
-              <div><dt>Package size or weight</dt><dd>Confirm the package size or weight with Ama.</dd></div>
-              <div><dt>Suitable plants</dt><dd>Confirm the mix type and its suitability for your plant with Ama.</dd></div>
-              <div><dt>Usage instructions</dt><dd>Ask Ama for instructions for the specific soil mix.</dd></div>
-            </dl>
-            <a class="btn btn--outline product-detail__back" href="shop.html#soil">Back to catalogue</a>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <div class="site-footer__brand-block">
-        <a class="site-footer__brand" href="index.html">
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a href="index.html" class="site-header__logo">
           <span class="brand-lockup">
-            <svg class="brand-mark site-footer__mark" aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M14 8.536V6a4 4 0 014-4h1.5a.5.5 0 01.5.5V4a4 4 0 01-4 4 4 4 0 00-4 4 5 5 0 01-8-4 5 5 0 018 4c0 2 1 3 1 5"/>
-              <path d="m18 17-1.085 3.58A2 2 0 0115 22H9.002a2 2 0 01-1.913-1.418L6 17"/>
-              <path d="M5 17h14"/>
+            <svg class="brand-mark" aria-hidden="true" viewBox="0 0 24 24">
+              <path
+                d="M14 8.536V6a4 4 0 014-4h1.5a.5.5 0 01.5.5V4a4 4 0 01-4 4 4 4 0 00-4 4 5 5 0 01-8-4 5 5 0 018 4c0 2 1 3 1 5"
+              />
+              <path
+                d="m18 17-1.085 3.58A2 2 0 0115 22H9.002a2 2 0 01-1.913-1.418L6 17"
+              />
+              <path d="M5 17h14" />
             </svg>
             <span>Ama's Plant Corner</span>
           </span>
         </a>
-        <p class="site-footer__tagline">A little more green, a little more joy.</p>
-      </div>
 
-      <nav class="site-footer__navigation" aria-label="Footer navigation">
-        <h2 class="site-footer__heading">Explore</h2>
-        <ul class="site-footer__links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop plants</a></li>
-          <li><a href="index.html#about">About Ama</a></li>
-          <li><a href="care-tips.html">Plant care</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="container site-footer__bottom">
-      <p>&copy; 2026 Ama's Plant Corner. All rights reserved.</p>
-    </div>
-  </footer>
-</body>
+        <input
+          type="checkbox"
+          id="nav-toggle"
+          class="site-header__toggle-input"
+          aria-label="Toggle navigation"
+        />
+        <div class="site-header__actions">
+          <a
+            href="tel:0244000000"
+            class="site-header__call"
+            aria-label="Contact the shop by phone at 0244 000 000"
+          >
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              />
+            </svg>
+            <span>Contact</span>
+          </a>
+
+          <label
+            for="nav-toggle"
+            class="site-header__toggle"
+            aria-label="Toggle navigation menu"
+          >
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+          </label>
+        </div>
+        <nav class="site-header__nav" aria-label="Main navigation">
+          <ul class="site-header__nav-list">
+            <li><a href="index.html" class="site-header__nav-link">Home</a></li>
+            <li><a href="shop.html" class="site-header__nav-link">Shop</a></li>
+            <li>
+              <a href="index.html#about" class="site-header__nav-link">About</a>
+            </li>
+            <li>
+              <a href="care-tips.html" class="site-header__nav-link"
+                >Plant Care</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="shop-page-banner" aria-labelledby="details-page-title">
+        <div class="container">
+          <h1 id="details-page-title">Product Details</h1>
+          <nav class="shop-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <a href="shop.html">Shop</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Product Details</span>
+          </nav>
+        </div>
+      </section>
+
+      <div class="container product-detail-list">
+        <section
+          id="indoor"
+          class="product-detail"
+          aria-labelledby="indoor-title"
+        >
+          <div class="product-detail__layout">
+            <div class="product-detail__image-wrapper">
+              <img
+                src="images/indoor-plant.jpg"
+                alt="Illustrative photo of indoor plants grouped beside a bright window"
+                class="product-detail__image"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div>
+              <p class="product-detail__category">Indoor plants</p>
+              <h2 id="indoor-title" class="product-detail__title">
+                Snake Plant
+              </h2>
+              <p class="product-detail__price">GH&#8373; 25</p>
+              <p class="product-detail__description">
+                Snake Plant for indoor spaces.
+              </p>
+              <h3 class="product-detail__section-title">
+                Care and suitability
+              </h3>
+              <dl class="product-detail__facts">
+                <div>
+                  <dt>Suitable for</dt>
+                  <dd>Indoor spaces.</dd>
+                </div>
+                <div>
+                  <dt>Watering</dt>
+                  <dd>
+                    Let the potting mix dry out completely before watering
+                    again. Water thoroughly, then let excess drain; water less
+                    often in low light or cooler weather.
+                  </dd>
+                </div>
+                <div>
+                  <dt>Sunlight</dt>
+                  <dd>
+                    Bright, indirect light is ideal. Snake Plants tolerate lower
+                    light, but avoid prolonged harsh direct sun.
+                  </dd>
+                </div>
+                <div>
+                  <dt>Soil</dt>
+                  <dd>
+                    Use a loose, fast-draining potting mix, such as a cactus and
+                    succulent mix.
+                  </dd>
+                </div>
+                <div>
+                  <dt>Care recommendation</dt>
+                  <dd>
+                    Use a pot with drainage holes and do not leave the roots
+                    standing in water.
+                  </dd>
+                </div>
+              </dl>
+              <a
+                class="btn btn--outline product-detail__back"
+                href="shop.html#indoor"
+                >Back to catalogue</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="outdoor"
+          class="product-detail"
+          aria-labelledby="outdoor-title"
+        >
+          <div class="product-detail__layout">
+            <div class="product-detail__image-wrapper">
+              <img
+                src="images/outdoor-plant.jpg"
+                alt="Illustrative photo of leafy plants arranged in pots on a patio"
+                class="product-detail__image"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div>
+              <p class="product-detail__category">Outdoor plants</p>
+              <h2 id="outdoor-title" class="product-detail__title">
+                Outdoor Plant
+              </h2>
+              <p class="product-detail__price">GH&#8373; 15</p>
+              <p class="product-detail__description">
+                Add greenery to patios, balconies, and gardens. Outdoor plants
+                have different care needs, so adjust watering and placement to
+                the plant and local conditions.
+              </p>
+              <h3 class="product-detail__section-title">
+                Care and suitability
+              </h3>
+              <dl class="product-detail__facts">
+                <div>
+                  <dt>Suitable for</dt>
+                  <dd>
+                    Outdoor spaces such as patios, balconies, and gardens. Match
+                    the plant to the amount of sun, shade, and shelter
+                    available.
+                  </dd>
+                </div>
+                <div>
+                  <dt>Watering</dt>
+                  <dd>
+                    Check the soil regularly and water when the top 2–3 cm feels
+                    dry. Water deeply, then allow excess to drain; check more
+                    often during hot, dry weather and less during rainy periods.
+                  </dd>
+                </div>
+                <div>
+                  <dt>Sunlight</dt>
+                  <dd>
+                    Needs depend on the plant: sun-loving varieties need several
+                    hours of direct sun, while many leafy plants prefer bright
+                    indirect light or partial shade.
+                  </dd>
+                </div>
+                <div>
+                  <dt>Soil</dt>
+                  <dd>
+                    Use loose, well-draining soil. For container plants, choose
+                    a potting mix and a pot with drainage holes to prevent
+                    waterlogged roots.
+                  </dd>
+                </div>
+                <div>
+                  <dt>Care recommendation</dt>
+                  <dd>
+                    Protect plants from conditions they do not tolerate, and
+                    adjust watering to rainfall, heat, and how quickly the soil
+                    dries.
+                  </dd>
+                </div>
+              </dl>
+              <a
+                class="btn btn--outline product-detail__back"
+                href="shop.html#outdoor"
+                >Back to catalogue</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <section id="pots" class="product-detail" aria-labelledby="pots-title">
+          <div class="product-detail__layout">
+            <div class="product-detail__image-wrapper">
+              <img
+                src="images/products/product2-image.jpg"
+                alt="Assorted plant pots and planters"
+                class="product-detail__image"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div>
+              <p class="product-detail__category">Plant pots</p>
+              <h2 id="pots-title" class="product-detail__title">
+                Pots &amp; Planters
+              </h2>
+              <p class="product-detail__price">GH&#8373; 15</p>
+              <p class="product-detail__description">
+                Find a planter for your plant and space. The catalogue image is
+                illustrative; ask Ama about the specific pots currently
+                available.
+              </p>
+              <h3 class="product-detail__section-title">Product information</h3>
+              <dl class="product-detail__facts">
+                <div>
+                  <dt>Material</dt>
+                  <dd>Confirm the material of the selected pot with Ama.</dd>
+                </div>
+                <div>
+                  <dt>Available sizes</dt>
+                  <dd>Confirm available sizes with Ama.</dd>
+                </div>
+                <div>
+                  <dt>Drainage</dt>
+                  <dd>Confirm whether the selected pot has drainage holes.</dd>
+                </div>
+                <div>
+                  <dt>Recommended use</dt>
+                  <dd>
+                    Confirm whether the pot is suitable for your intended indoor
+                    or outdoor use.
+                  </dd>
+                </div>
+              </dl>
+              <a
+                class="btn btn--outline product-detail__back"
+                href="shop.html#accessories"
+                >Back to catalogue</a
+              >
+            </div>
+          </div>
+        </section>
+
+        <section id="soil" class="product-detail" aria-labelledby="soil-title">
+          <div class="product-detail__layout">
+            <div class="product-detail__image-wrapper">
+              <img
+                src="images/products/product1-image.jpg"
+                alt="Potting soil in a terracotta pot"
+                class="product-detail__image"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div>
+              <p class="product-detail__category">Potting soil</p>
+              <h2 id="soil-title" class="product-detail__title">
+                Potting Soil
+              </h2>
+              <p class="product-detail__price">GH&#8373; 10</p>
+              <p class="product-detail__description">
+                Listed for planting and repotting. Ask Ama which soil mix is
+                available and whether it is suitable for your plant.
+              </p>
+              <h3 class="product-detail__section-title">Product information</h3>
+              <dl class="product-detail__facts">
+                <div>
+                  <dt>Package size or weight</dt>
+                  <dd>Confirm the package size or weight with Ama.</dd>
+                </div>
+                <div>
+                  <dt>Suitable plants</dt>
+                  <dd>
+                    Confirm the mix type and its suitability for your plant with
+                    Ama.
+                  </dd>
+                </div>
+                <div>
+                  <dt>Usage instructions</dt>
+                  <dd>Ask Ama for instructions for the specific soil mix.</dd>
+                </div>
+              </dl>
+              <a
+                class="btn btn--outline product-detail__back"
+                href="shop.html#soil"
+                >Back to catalogue</a
+              >
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div>
+          <a class="site-footer__brand" href="index.html">
+            <span class="brand-lockup">
+              <svg class="brand-mark" aria-hidden="true" viewBox="0 0 24 24">
+                <path
+                  d="M14 8.536V6a4 4 0 014-4h1.5a.5.5 0 01.5.5V4a4 4 0 01-4 4 4 4 0 00-4 4 5 5 0 01-8-4 5 5 0 018 4c0 2 1 3 1 5"
+                />
+                <path
+                  d="m18 17-1.085 3.58A2 2 0 0115 22H9.002a2 2 0 01-1.913-1.418L6 17"
+                />
+                <path d="M5 17h14" />
+              </svg>
+              <span>Ama's Plant Corner</span>
+            </span>
+          </a>
+          <p class="site-footer__tagline">
+            A little more green, a little more joy.
+          </p>
+        </div>
+
+        <nav aria-label="Footer navigation">
+          <h2 class="site-footer__heading">Explore</h2>
+          <ul class="site-footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop plants</a></li>
+            <li><a href="index.html#about">About Ama</a></li>
+            <li><a href="care-tips.html">Plant care</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="container site-footer__bottom">
+        <p>&copy; 2026 Ama's Plant Corner. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
 </html>

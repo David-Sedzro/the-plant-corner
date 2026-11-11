@@ -40,11 +40,6 @@
   white-space: nowrap;
 }
 
-.site-header__logo span {
-  min-width: 0;
-  white-space: nowrap;
-}
-
 .brand-mark {
   display: block;
   flex: 0 0 auto;
@@ -161,11 +156,6 @@
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.site-header__toggle-input:focus-visible ~ .site-header__actions .site-header__toggle {
-  outline: 0.125rem solid var(--color-text-inverse);
-  outline-offset: 0.125rem;
-}
-
 .site-header__nav-list {
   list-style: none;
   display: flex;
@@ -186,8 +176,7 @@
   font-size: var(--font-size-small);
 }
 
-.site-header__nav-link:hover,
-.site-header__nav-link:focus-visible {
+.site-header__nav-link:hover {
   text-decoration: underline;
   text-underline-offset: 0.25em;
   text-decoration-thickness: 0.0625rem;
@@ -265,7 +254,7 @@
   }
 }
 
-/* Background Carousel Slides (Pure CSS — Zero JS) */
+/* Background Carousel Slides */
 .hero__carousel {
   position: absolute;
   inset: 0;
@@ -322,7 +311,6 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 42.5rem;
   margin-inline: auto;
   padding-inline: var(--space-sm);
 }
@@ -423,7 +411,7 @@
   margin-inline: auto;
 }
 
-/* Category Showcase (Cards Rebuilt with Design Tokens) */
+/* Category Showcase */
 .categories-section {
   padding-block: var(--space-2xl);
 }
@@ -467,8 +455,7 @@
   }
 }
 
-.category-card:hover,
-.category-card:focus-visible {
+.category-card:hover {
   transform: translateY(-0.25rem);
   box-shadow: var(--shadow-md);
 }
@@ -482,8 +469,7 @@
   transition: transform 0.5s ease;
 }
 
-.category-card:hover .category-card__image,
-.category-card:focus-visible .category-card__image {
+.category-card:hover .category-card__image {
   transform: scale(1.05);
 }
 
@@ -500,8 +486,7 @@
   transition: background-color var(--transition-normal);
 }
 
-.category-card:hover .category-card__content,
-.category-card:focus-visible .category-card__content {
+.category-card:hover .category-card__content {
   background-color: var(--color-card-scrim-hover);
 }
 
@@ -528,13 +513,6 @@
   }
 }
 
-.product-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-
 .product-card__image-wrapper {
   aspect-ratio: 4 / 3;
   background-color: var(--color-background);
@@ -545,10 +523,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.product-card__body {
-  padding: var(--space-md);
 }
 
 .product-card__title {
@@ -920,6 +894,7 @@
 
 .product-detail__back {
   margin-top: var(--space-md);
+  color: var(--color-text-secondary);
 }
 
 @media (min-width: 48em) {
@@ -1115,13 +1090,11 @@
   transition: transform var(--transition-fast);
 }
 
-.faq-prompt a:hover,
-.faq-prompt a:focus-visible {
+.faq-prompt a:hover {
   color: var(--color-primary-dark);
 }
 
-.faq-prompt a:hover span,
-.faq-prompt a:focus-visible span {
+.faq-prompt a:hover span {
   transform: translateX(0.25rem);
 }
 
@@ -1314,9 +1287,7 @@
 }
 
 .site-footer__links a:hover,
-.site-footer__visit a:hover,
-.site-footer__links a:focus-visible,
-.site-footer__visit a:focus-visible {
+.site-footer__visit a:hover {
   color: var(--color-secondary);
   text-decoration: underline;
   text-underline-offset: 0.2em;
@@ -1324,10 +1295,6 @@
 
 .site-footer .site-footer__brand:hover {
   color: var(--color-text-inverse);
-}
-
-.site-footer a:focus-visible {
-  outline-color: var(--color-secondary);
 }
 
 .site-footer__links a,

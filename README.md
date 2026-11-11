@@ -15,39 +15,40 @@ The header and welcoming hero identify the shop and give visitors clear next ste
 The main page also links to separate catalogue, product-details, and plant-care pages. This lets visitors go directly to more detailed information without putting every product and care instruction on the homepage, which is especially useful on mobile.
 
 ## 2. Site Diagnosis
-Before beginning the redesign, I examined the existing website's HTML structure, CSS styles and rendered appearance to identify issues affecting its usability, accessibility and visual presentation. The investigation focused on the two main concerns raised by the client: difficulty reading and navigating the website on mobile devices, and an appearance that does not communicate the calm, welcoming and knowledgeable identity of the business.
 
+Before beginning the redesign, I examined the existing website's HTML structure, CSS styles and rendered appearance to identify issues affecting its usability, accessibility and visual presentation. The investigation focused on the two main concerns raised by the client: difficulty reading and navigating the website on mobile devices, and an appearance that does not communicate the calm, welcoming and knowledgeable identity of the business.
 
 ### Mobile usability and local access
 
-| # | Issue and root cause | Evidence from the existing website | Reasoning and impact |
+| # | Issue and root cause | Evidence from the original website | Impact on Ama's customers |
 |---|---|---|---|
-| 1 | **Fixed-width page layout:** Major page sections use fixed pixel widths instead of flexible dimensions. | `#header`, `#banner`, and `#content` use `width: 900px`. Their padding increases their total rendered width because the default box model is `content-box`. | The layout does not adapt properly to smaller screens. Customers using mobile phones may have to scroll horizontally or view a scaled-down page, making it harder to browse products and access important information. |
-| 2 | **No mobile viewport configuration:** The HTML document does not define a viewport meta tag. | The `<head>` contains the character encoding and stylesheet link, but no `<meta name="viewport">`. | Without the viewport configuration, mobile browsers may use a wider virtual viewport and scale the page down. This can make text and interactive elements difficult to use on phones. |
-| 3 | **Fixed-width two-column layout:** The main content and sidebar use floated elements with fixed dimensions. | `#main` uses `float: left; width: 610px`, while `#sidebar` uses `float: right; width: 240px`. | These dimensions do not provide a flexible way to reorganise the content on smaller screens. Customers may struggle to access the shop's contact information and other content conveniently. |
-| 4 | **Small text in important content:** Several paragraphs and product descriptions use an 11px font size. | Inline styles such as `font-size: 11px` appear in the product introduction, About section, plant-care information, and sidebar. Product cards and the footer also use 11px text. | Small text can be difficult to read, particularly on mobile screens. This may discourage customers from reading product descriptions, care instructions, and business information. |
-| 5 | **No responsive breakpoints:** The stylesheet does not contain media queries for adapting the layout to different screen sizes. | There are no `@media` rules in the supplied CSS. | The layout retains the same styling across different screen sizes. This limits its ability to adjust the navigation, product arrangement, and content sections for mobile users. |
-| 6 | **Product images do not adapt to their containers:** Images have fixed rendered dimensions and no responsive image styling. | Product images use `width="180"` and `height="120"` in HTML. The CSS does not provide `max-width: 100%` or another responsive sizing rule. | Images cannot naturally adjust to narrower product layouts under the current styling. This may affect how products are displayed when the layout is adapted for smaller screens. |
-| 7 | **Important business information is not directly actionable:** Contact details are presented as ordinary text. | The phone number is plain text rather than a `tel:` link. The address is not linked to a directions service. | A customer browsing on a phone cannot simply tap the phone number to call the shop or follow a directions link to find its location. This introduces unnecessary steps for people who want to visit or contact Ama. |
+| 1 | **Fixed-width layout and columns:** The page uses fixed dimensions instead of layouts that can shrink or reflow. | `#header`, `#banner`, and `#content` use `width: 900px`; `#main` is 610px and `#sidebar` is 240px wide. | On a phone, customers may need to scroll sideways to read the page or reach shop contact details. |
+| 2 | **No mobile viewport configuration:** The document does not define a viewport meta tag. | The `<head>` has no `<meta name="viewport">`. | A phone may render the page at a wider virtual width and scale it down, making product information and links too small to read or tap comfortably. |
+| 3 | **Small text in important content:** Product descriptions and other key text use an 11px font size. | Inline `font-size: 11px` styles appear in the product introduction, About section, plant-care information, and sidebar. Product cards and the footer also use 11px text. | Customers reading product details, care advice, or shop information on a phone may have difficulty without zooming in. |
+| 4 | **No responsive breakpoints:** The stylesheet does not adapt the layout to different screen sizes. | The supplied CSS contains no `@media` rules. | The navigation and product listings stay rigid on small screens, making it harder for mobile shoppers to browse the catalogue. |
+| 5 | **Product images do not adapt to their containers:** Images have fixed dimensions and no responsive sizing rules. | Product images use `width="180"` and `height="120"` in the HTML, with no CSS such as `max-width: 100%`. | On narrow screens, product images may not fit their listing areas, disrupting the layout and making items harder to compare. |
+| 6 | **Referenced product image files are missing:** The original project does not include the image assets referenced by the page. | `index.html` references `images/houseplants.jpg`, `images/pots.jpg`, and `images/soil.jpg`, but the original project has no `images` folder. | Customers cannot see the houseplants, pots, or soil being offered, leaving them with less information when deciding what to ask Ama about or whether to visit. |
 
 ### Visual identity and consistency
 
-| # | Issue and root cause | Evidence from the existing website | Reasoning and impact |
+| # | Issue and root cause | Evidence from the original website | Impact on Ama's customers |
 |---|---|---|---|
-| 8 | **Inconsistent colour scheme:** The website uses several strong colours without a consistent visual system. | The header uses `#0066cc`, the banner uses `#009900`, the main button uses `#ff6600`, and the navigation hover state changes to red. | These colours compete for attention rather than creating a calm and welcoming appearance. The green links and orange button also have limited contrast with their white text or background combinations, which can affect readability. |
-| 9 | **Generic typography:** The website uses a default Arial font throughout. | The body CSS specifies `font-family: Arial, sans-serif`. | Although readable, the typography does not contribute much to the natural and welcoming identity the client wants to communicate. A more considered typeface and typographic system would give the website a more consistent appearance. |
-| 10 | **Weak heading hierarchy:** Section headings use the same heading level and styling. | The page uses `<h1>` for the banner heading, but `<h4>` for sections such as What We Sell, About Ama, Plant Care Tips, and Ask Ama. The CSS also styles all `h4` elements identically. | This creates a flat content hierarchy and does not clearly distinguish the major sections. It also makes the document heading structure less meaningful for assistive technologies. |
-| 11 | **Inconsistent spacing:** Margins and padding are applied using unrelated values rather than a consistent spacing system. | The stylesheet contains values such as 4px, 5px, 8px, 10px, 12px, 15px, 20px, and 25px. | Without a consistent spacing scale, sections and elements can appear unevenly arranged. This affects the overall visual organisation and makes the design feel less polished. |
+| 7 | **Inconsistent colour scheme:** The site uses several strong colours without a unified visual system. | The header uses `#0066cc`, the banner `#009900`, the main button `#ff6600`, and hover states turn red. | The competing colours make pages and calls to action feel inconsistent, rather than supporting the calm, welcoming experience Ama wants customers to associate with her plant shop. |
+| 8 | **Weak heading hierarchy:** Section headings use inconsistent semantic levels and identical styling. | The page moves from `<h1>` to `<h4>` for sections such as “What We Sell” and “About Ama”; the CSS styles the `<h4>` headings alike. | Customers scanning the page may have difficulty distinguishing sections. The skipped heading levels also make section navigation less clear for screen-reader users. |
+| 9 | **Inconsistent spacing:** Margins and padding use unrelated values rather than a consistent spacing scale. | The CSS uses values such as 4px, 5px, 8px, 10px, 12px, 15px, 20px, and 25px. | Uneven spacing can make product listings, care advice, and contact information harder for customers to scan as connected sections. |
 
 ### Accessibility, content, and functionality
 
-| # | Issue and root cause | Evidence from the existing website | Reasoning and impact |
+| # | Issue and root cause | Evidence from the original website | Impact on Ama's customers |
 |---|---|---|---|
-| 12 | **Missing alternative text for product images:** Images use generic descriptions. | All three product images have `alt="image"`. | Screen-reader users cannot identify what the images represent. Descriptive alternative text would help communicate the products to customers who cannot see the images. |
-| 13 | **Form inputs lack proper labels:** Placeholder text is used instead of explicit form labels. | Both forms contain inputs with placeholders such as “Your name,” “Email address,” and “Your message,” but no associated `<label>` elements. | Placeholder text disappears when users begin typing and does not provide the same reliable identification as a properly associated label. This can make the forms harder to understand and use, particularly with assistive technology. |
-| 14 | **Unclear plant-care interaction:** The care topics look like ordinary text rather than clearly identifiable interactive controls. | The HTML uses `<div class="guide-trigger">` for topics and `<div class="guide-body">` for their content. The screenshot shows the care information displayed rather than collapsed behind an obvious control. | Visitors are told to click a topic, but the interface does not clearly communicate that the topics are interactive. This can create confusion and make the care guide less intuitive. |
-| 15 | **Duplicated enquiry forms:** Two forms provide overlapping ways to contact Ama. | The page contains an Ask Ama form requesting a name and question, followed by a Get In Touch form requesting a name, email, phone number, and message. | Both forms appear to serve similar enquiry purposes. Having them separately may create uncertainty about which form customers should use. Their intended purposes should be clarified or combined where appropriate. |
-| 16 | **Navigation links do not lead to their intended destinations.** | The navigation links, Shop Now button, and social media links use `href="#"`. | Visitors may expect these elements to take them to the relevant sections or external pages, but the supplied HTML does not provide those destinations. This makes navigation less useful and can prevent customers from finding the information they expect. |
+| 10 | **Missing useful alternative text:** Product images have generic alt text. | All three product images use `alt="image"`. | Screen-reader users cannot tell whether an image represents houseplants, pots, or soil, so they miss product information available to sighted customers. |
+| 11 | **Form inputs lack proper labels:** The forms rely on placeholders instead of associated `<label>` elements. | Inputs use placeholders such as “Your name” and “Email address” without matching labels. | Placeholder instructions disappear as customers type, and assistive technology may not have a reliable field name to announce while they complete an enquiry. |
+| 12 | **Plant-care topics are not implemented as clear controls:** The topics are ordinary elements rather than accessible disclosure controls. | The original page uses `<div class="guide-trigger">` and `<div class="guide-body">`; the care content is displayed rather than controlled by a semantic interactive element. | Customers may not know how to open or close a topic, and keyboard users may not be able to operate it to find Ama's care advice. |
+| 13 | **Duplicated enquiry forms:** Two forms offer overlapping ways to contact Ama. | The page has an “Ask Ama” form for a name and question, followed by a “Get In Touch” form for a name, email, phone, and message. | Customers may be unsure which form to use, while Ama's enquiries may be split between two similar contact routes. |
+| 14 | **Navigation and social links do not lead to their intended destinations.** | The menu, “Shop Now,” Facebook, and Instagram links use `href="#"`. | Customers cannot use these links to reach the catalogue or Ama's social media; the links remain on the current page instead of taking them to the intended destination. |
+| 15 | **Neither enquiry form submits or provides a result.** | Both buttons use `type="button"`, and `script.js` contains no form-handling code. | When a customer selects “Send Question” or “Send Message,” no enquiry is sent and no confirmation appears, leaving them unsure whether Ama received it. |
+
+
 
 # 3. Site Rebuild
 
@@ -56,36 +57,40 @@ The rebuild separates the shop overview, catalogue, product information, and car
 ### Pages and navigation
 
 - **Homepage — `index.html`:** Introduces the shop, links to product categories, shares information about Ama, provides plant-care FAQs, and offers a contact form.
-- **Shop — `shop.html`:** Organises the catalogue into indoor plants, outdoor plants, pots and planters, and potting soil. Each listing links to its details.
+- **Shop — `shop.html`:** Organises the catalogue into indoor plants, outdoor plants, pots and planters, and potting soil (accessories). Each listing links to its details.
 - **Product details — `product-details.html`:** Provides a separate anchored section for each of the four catalogue listings and links back to the catalogue.
 - **Plant care — `care-tips.html`:** Provides additional care guidance organised by plant type.
 
-All pages use shared navigation and footer patterns. HTML landmarks (`<header>`, named `<nav>`, `<main>`, and `<footer>`) organize each page. The skip link jumps to `#main-content`; the header phone action uses a `tel:` link. The mobile menu uses a checkbox with a matching label, and CSS in `css/components.css` opens the navigation and changes the hamburger icon. Product detail links use URL fragments, with `.product-detail:target` showing the selected section; this keeps the experience JavaScript-free.
+All pages use shared navigation and footer patterns. HTML landmarks (`<header>`, named `<nav>`, `<main>`, and `<footer>`) organize each page. The header phone action uses a `tel:` link.
 
 ### Visual system and responsive layout
 
 The shared design system lives in `css/tokens.css`, `css/layout.css`, and `css/components.css`:
 
-- **Colour:** Forest green (`#254B38`), sage (`#8FA68E`), warm cream (`#F8F6EF`), white surfaces, and dark text establish a calm botanical palette.
+- **Colour:** Forest green (`#254B38`), sage (`#8FA68E`), warm cream (`#F8F6EF`), white surfaces, and dark text.
 - **Typography and spacing:** Poppins, a responsive heading scale, and reusable spacing tokens create consistent hierarchy and rhythm.
 - **Responsive layout:** Shared containers and CSS media queries adapt navigation, category cards, product details, and forms to smaller and larger screens.
-- **Reusable components:** Shared styles cover buttons, cards, forms, navigation, and focus states. Keyboard focus is indicated with `:focus-visible`.
+- **Reusable components:** Shared styles cover buttons, cards, forms, navigation.
 
 # 4. Site Audit
 
-The audit below prioritizes semantic structure and practical access for the shop’s main audience: first-time plant owners using phones. It is based on the current HTML and CSS; it is not a substitute for testing with assistive technology or across real devices.
+The audit below prioritizes semantic structure and practical access for the shop’s main audience or customers using phones.
 
 ### Semantic structure
 
-The pages use HTML landmarks and descriptive headings to make content easier to navigate. Sections are associated with their headings using `aria-labelledby`. The care questions use native `<details>` and `<summary>` controls, and product facts use definition lists (`<dl>`, `<dt>`, and `<dd>`). 
+The pages use HTML landmarks and descriptive headings to make content easier to navigate. Sections are associated with their headings using `aria-labelledby`. The care questions use native `<details>` and `<summary>` controls, and product facts use definition lists (`<dl>`, `<dt>`, and `<dd>`).
 
 ### Accessibility priorities
 
-- **Navigation and keyboard access:** The skip link, named navigation landmarks, associated menu checkbox and label, and `:focus-visible` styles support keyboard navigation. The direct-call link uses `tel:` so mobile visitors can call with one tap.
 - **Images and controls:** Images have descriptive `alt` text. The homepage contact form uses explicit labels and suitable `type="tel"` and `type="email"` fields with unique IDs and autocomplete values.
-- **Readable, responsive presentation:** The shared type and spacing tokens, contrast-conscious palette, and responsive CSS aim to keep content usable across screen sizes. Contrast and layout still need manual browser checks at small viewport widths and keyboard-only checks.
+- **Readable, responsive presentation:** Shared type and spacing tokens, the colour palette, and responsive CSS aim to keep content usable across screen sizes. Contrast and layout still need manual checks at small viewport widths.
+- **Keyboard focus:** The skip link and custom `:focus-visible` styles are currently omitted by design and remain future accessibility work. Keyboard navigation should be tested, and visible focus styling should be restored before the site is presented as fully keyboard-accessible.
 
+### Current functional limitations
 
+- **Contact form:** The homepage form has labelled, required fields and uses the browser's built-in validation, but it has no configured submission endpoint or form handler. It does not currently deliver enquiries to Ama or show a success confirmation.
+- **Shop controls:** Product category links jump to catalogue items. The price range and sort control are visual placeholders; they do not filter or reorder products.
+- **JavaScript:** `js/script.js` is currently a placeholder. The navigation and care disclosures use CSS and native `<details>`/`<summary>` behavior instead.
 
 # 5. Additional Improvement
 
@@ -96,8 +101,6 @@ As an additional improvement, I introduced a Frequently Asked Questions section 
 The purpose of this feature is to help visitors, particularly first-time plant owners, find answers to common questions without having to contact Ama for every enquiry. Visitors can expand a question to read its answer and close it when they are finished.
 
 This makes useful information easier to access, and may reduce the number of repetitive questions Ama has to answer. It also gives customers a convenient way to obtain basic information before deciding to visit or contact the shop.
-
-
 
 ## Project Structure
 
