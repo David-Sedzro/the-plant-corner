@@ -597,80 +597,39 @@
   font-weight: 600;
 }
 
-.shop-filter-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-xs) var(--space-sm);
-  padding: 0;
-  list-style: none;
+.shop-category-select {
+  display: block;
 }
 
-.shop-filter-list a {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  min-height: 2rem;
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-small);
-  text-decoration: none;
-}
-
-.shop-filter-list a::before {
-  width: 0.875rem;
-  height: 0.875rem;
-  flex: 0 0 0.875rem;
+.shop-category-select select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: var(--space-xs) var(--space-sm);
   border: 1px solid var(--color-border);
-  border-radius: 0.125rem;
-  content: "";
-}
-
-.shop-filter-list a:hover {
-  color: var(--color-primary);
-}
-
-.shop-filter-list a:hover::before {
-  border-color: var(--color-primary);
-}
-
-.shop-filter-group__value {
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-small);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  font: inherit;
+  cursor: pointer;
 }
 
 .shop-price-range {
-  position: relative;
-  height: 1.25rem;
-  margin-top: var(--space-xs);
+  display: grid;
+  gap: var(--space-sm);
 }
 
-.shop-price-range::before {
-  position: absolute;
-  top: 0.5625rem;
-  right: 0;
-  left: 0;
-  height: 0.25rem;
-  border-radius: var(--radius-pill);
-  background-color: var(--color-border);
-  content: "";
+.shop-price-range label {
+  display: grid;
+  gap: var(--space-2xs);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
 }
 
-.shop-price-range span {
-  position: absolute;
-  top: 0.3125rem;
-  z-index: 1;
-  width: 0.75rem;
-  height: 0.75rem;
-  border: 0.125rem solid var(--color-surface);
-  border-radius: 50%;
-  background-color: var(--color-primary);
-}
-
-.shop-price-range span:first-child {
-  left: 16%;
-}
-
-.shop-price-range span:last-child {
-  right: 18%;
+.shop-price-range input {
+  width: 100%;
+  accent-color: var(--color-primary);
 }
 
 .shop-results {
@@ -686,19 +645,19 @@
 }
 
 .shop-results__count,
-.shop-sort {
+.shop-search {
   color: var(--color-text-secondary);
   font-size: var(--font-size-small);
 }
 
-.shop-sort {
+.shop-search {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-sm);
 }
 
-.shop-sort select {
+.shop-search input {
   min-height: 2.5rem;
   max-width: 100%;
   padding: var(--space-xs) var(--space-sm);
@@ -760,17 +719,13 @@
 }
 
 @media (min-width: 36em) {
-  .shop-filter-list {
-    grid-template-columns: repeat(3, minmax(0, max-content));
-  }
-
   .shop-results__toolbar {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
 
-  .shop-sort {
+  .shop-search {
     justify-content: flex-start;
   }
 
@@ -782,10 +737,6 @@
 @media (min-width: 48em) {
   .shop-layout {
     gap: var(--space-xl);
-  }
-
-  .shop-filter-list {
-    grid-template-columns: minmax(0, 1fr);
   }
 
   .shop-results .product-grid {
@@ -801,10 +752,6 @@
 
   .shop-filters__title {
     margin-bottom: var(--space-md);
-  }
-
-  .shop-filter-list {
-    grid-template-columns: minmax(0, 1fr);
   }
 
   .shop-results .product-grid {
@@ -1024,18 +971,7 @@
   min-height: 4rem;
   padding: var(--space-md) var(--space-xs);
   color: var(--color-primary);
-  cursor: pointer;
-  list-style: none;
-}
-
-.care-guide__summary::-webkit-details-marker {
-  display: none;
-}
-
-.care-guide__question {
-  font-size: var(--font-size-body);
-  font-weight: 600;
-  line-height: var(--line-height-tight);
+  text-align: left;
 }
 
 .care-guide__summary::after {
@@ -1046,11 +982,14 @@
   line-height: 1;
 }
 
-.care-guide__item[open] .care-guide__summary::after {
-  content: "−";
+.care-guide__question {
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  line-height: var(--line-height-tight);
 }
 
 .care-guide__body {
+  display: none;
   padding: 0 var(--space-xl) var(--space-md) var(--space-xs);
   color: var(--color-text-secondary);
   font-size: var(--font-size-small);

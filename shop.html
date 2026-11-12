@@ -112,24 +112,32 @@
 
             <div class="shop-filter-group">
               <h3 class="shop-filter-group__title">Category</h3>
-              <nav aria-label="Product categories">
-                <ul class="shop-filter-list">
-                  <li><a href="#indoor">Indoor Plants</a></li>
-                  <li><a href="#outdoor">Outdoor Plants</a></li>
-                  <li><a href="#accessories">Pots &amp; Planters</a></li>
-                  <li><a href="#soil">Potting Soil</a></li>
-                </ul>
-              </nav>
+              <label class="shop-category-select">
+                <select name="category" aria-label="Choose a product category">
+                  <option value="all">All Products</option>
+                  <option value="houseplants">Houseplants</option>
+                  <option value="pots-planters">Pots &amp; Planters</option>
+                  <option value="soil-accessories">
+                    Soil &amp; Plant Accessories
+                  </option>
+                </select>
+              </label>
             </div>
 
             <div class="shop-filter-group">
               <h3 class="shop-filter-group__title">Price</h3>
-              <p class="shop-filter-group__value">
-                GH&#8373; 10 – GH&#8373; 25
-              </p>
-              <div class="shop-price-range" aria-hidden="true">
-                <span></span>
-                <span></span>
+              <div class="shop-price-range">
+                <label>
+                  <span>Price: GH&#8373; 10</span>
+                  <input
+                    type="range"
+                    name="min-price"
+                    min="10"
+                    max="200"
+                    value="10"
+                    aria-label="Minimum price"
+                  />
+                </label>
               </div>
             </div>
           </aside>
@@ -137,16 +145,24 @@
           <div class="shop-results">
             <div class="shop-results__toolbar">
               <p class="shop-results__count">Showing 1–4 of 4 products</p>
-              <label class="shop-sort">
-                <span>Sort by:</span>
-                <select aria-label="Sort products">
-                  <option>Default sorting</option>
-                </select>
+              <label class="shop-search">
+                <span>Search:</span>
+                <input
+                  type="search"
+                  name="search"
+                  placeholder="Search products"
+                  aria-label="Search products"
+                />
               </label>
             </div>
 
             <div class="product-grid products">
-              <article id="indoor" class="product-card product-item">
+              <article
+                id="indoor"
+                class="product-card product-item"
+                data-category="houseplants"
+                data-price="25"
+              >
                 <div class="product-card__image-wrapper">
                   <img
                     src="images/indoor-plant.jpg"
@@ -169,7 +185,12 @@
                 </div>
               </article>
 
-              <article id="outdoor" class="product-card product-item">
+              <article
+                id="outdoor"
+                class="product-card product-item"
+                data-category="houseplants"
+                data-price="15"
+              >
                 <div class="product-card__image-wrapper">
                   <img
                     src="images/outdoor-plant.jpg"
@@ -182,7 +203,7 @@
                 <div class="product-card__body">
                   <h2 class="product-card__title">Money Tree</h2>
                   <p class="product-card__description">
-                    A plant for outdoor spaces.
+                    A plant for indoor spaces.
                   </p>
                   <p class="product-card__price">GH&#8373; 15</p>
                   <a
@@ -194,7 +215,12 @@
                 </div>
               </article>
 
-              <article id="accessories" class="product-card product-item">
+              <article
+                id="accessories"
+                class="product-card product-item"
+                data-category="pots-planters"
+                data-price="15"
+              >
                 <div class="product-card__image-wrapper">
                   <img
                     src="images/products/product2-image.jpg"
@@ -219,7 +245,12 @@
                 </div>
               </article>
 
-              <article id="soil" class="product-card product-item">
+              <article
+                id="soil"
+                class="product-card product-item"
+                data-category="soil-accessories"
+                data-price="10"
+              >
                 <div class="product-card__image-wrapper">
                   <img
                     src="images/products/product1-image.jpg"
