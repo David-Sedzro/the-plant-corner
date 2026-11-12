@@ -2,7 +2,7 @@
 
 ### Client and customer needs
 
-The redesign responds to two priorities identified in the brief: customers have difficulty reading and navigating the existing site on mobile, and its visual presentation does not convey the calm, welcoming, knowledgeable character Ama wants for her plant shop.
+The redesign responds to two priorities identified: customers have difficulty reading and navigating the existing site on mobile, and its visual presentation does not convey the calm, welcoming, knowledgeable character Ama wants for her plant shop.
 
 The audience includes nearby shoppers using phones and people who are new to plant care. They need to quickly understand what Ama sells, get straightforward care guidance, and find a direct way to contact or visit the shop.
 
@@ -14,7 +14,7 @@ The audience includes nearby shoppers using phones and people who are new to pla
 
 ### Why the content is ordered this way
 
-The header and hero introduce the shop and give customers clear next steps. Product categories follow so shoppers can quickly see what Ama sells. The About section introduces the shop which builds familiarity and trust. The FAQ gives first-time plant owners useful information before they contact Ama. Contact and visit details remain easy to find in the lower page and footer.
+The header and hero introduce the shop and give customers clear next steps. Product categories follow so shoppers can quickly see what Ama sells. The About section introduces the sellers expertise and what they offer which builds familiarity and trust. The FAQ gives first-time plant owners useful information before they contact Ama. Contact and visit details remain easy to find in the lower page and footer.
 
 The shop catalogue, product details, and extended care advice each have their own page so customers can go directly to the information they need without making the homepage unwieldy, particularly on mobile.
 
@@ -22,7 +22,7 @@ The shop catalogue, product details, and extended care advice each have their ow
 
 - **Homepage - `index.html`:** Introduces the shop, links to product categories, tells customers about Ama, answers common care questions, and provides a contact form.
 - **Shop - `shop.html`:** Groups the catalogue into Houseplants, Pots & Planters, and Soil & Plant Accessories.
-- **Product details - `product-details.html`:** Provides information about each catalogue item. URL fragments such as `#indoor` select the requested detail section.
+- **Product details - `product-details.html`:** Provides specific information about each catalogue or product item.
 - **Plant care - `care-tips.html`:** Organizes additional care guidance by plant type.
 
 All pages use semantic header, navigation, main, and footer regions. Sections are associated with headings using `aria-labelledby`. Product facts use definition lists, and care guidance is grouped into labeled sections.
@@ -63,41 +63,41 @@ Before rebuilding, I inspected the original HTML, CSS, and rendered pages. The f
 
 ### Accessibility, content, and functionality
 
-| #   | Issue and root cause                                                                                                                      | Evidence from the original website                                                                                                                                           | Impact on Ama's customers                                                                                                                                               |
-| --- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 10  | **Missing useful alternative text:** Product images have generic alt text.                                                                | All three product images use `alt="image"`.                                                                                                                                  | Screen-reader users cannot tell whether an image represents houseplants, pots, or soil, so they miss product information available to sighted customers.                |
-| 11  | **Form inputs lack proper labels:** The forms rely on placeholders instead of associated `<label>` elements.                              | Inputs use placeholders such as "Your name" and "Email address" without matching labels.                                                                                     | Placeholder instructions disappear as customers type, and assistive technology may not have a reliable field name to announce while they complete an enquiry.           |
-                                       
-| 13  | **Duplicated enquiry forms:** Two forms offer overlapping ways to contact Ama.                                                            | The page has an "Ask Ama" form for a name and question, followed by a "Get In Touch" form for a name, email, phone, and message.                                             | Customers may be unsure which form to use, while Ama's enquiries may be split between two similar contact routes.                                                       |
-| 14  | **Navigation and social links do not lead to their intended destinations.**                                                               | The menu, "Shop Now," Facebook, and Instagram links use `href="#"`.                                                                                                          | Customers cannot use these links to reach the catalogue or Ama's social media; the links remain on the current page instead of taking them to the intended destination. |
-| 15  | **Neither enquiry form submits or provides a result.**                                                                                    | Both buttons use `type="button"`, and `script.js` contains no form-handling code.                                                                                            | When a customer selects "Send Question" or "Send Message," no enquiry is sent and no confirmation appears, leaving them unsure whether Ama received it.                 |
+| #   | Issue and root cause                                                                                         | Evidence from the original website                                                                                               | Impact on Ama's customers                                                                                                                                               |
+| --- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 10  | **Missing useful alternative text:** Product images have generic alt text.                                   | All three product images use `alt="image"`.                                                                                      | Screen-reader users cannot tell whether an image represents houseplants, pots, or soil, so they miss product information available to sighted customers.                |
+| 11  | **Form inputs lack proper labels:** The forms rely on placeholders instead of associated `<label>` elements. | Inputs use placeholders such as "Your name" and "Email address" without matching labels.                                         | Placeholder instructions disappear as customers type, and assistive technology may not have a reliable field name to announce while they complete an enquiry.           |
+| 12  | **Duplicated enquiry forms:** Two forms offer overlapping ways to contact Ama.                               | The page has an "Ask Ama" form for a name and question, followed by a "Get In Touch" form for a name, email, phone, and message. | Customers may be unsure which form to use, while Ama's enquiries may be split between two similar contact routes.                                                       |
+| 13  | **Navigation and social links do not lead to their intended destinations.**                                  | The menu, "Shop Now," Facebook, and Instagram links use `href="#"`.                                                              | Customers cannot use these links to reach the catalogue or Ama's social media; the links remain on the current page instead of taking them to the intended destination. |
+| 14  | **Neither enquiry form submits or provides a result.**                                                       | Both buttons use `type="button"`, and `script.js` contains no form-handling code.                                                | When a customer selects "Send Question" or "Send Message," no enquiry is sent and no confirmation appears, leaving them unsure whether Ama received it.                 |
 
-## 4. Evaluate the result against Ama's needs
+## 4. Evaluate the rebuilt website
 
-The highest priorities are the defects that block a customer's core tasks: using the site on a phone, identifying products, finding the right page, and contacting or visiting Ama. The rebuild addresses many of these through responsive layouts, descriptive product content and images, working internal links, a direct phone action, and a directions link. Consistent colour, type, and spacing support the welcoming presentation in the brief.
+The rebuild prioritizes customers' main tasks: browsing on a phone, understanding what is for sale, finding related information, and contacting or visiting Ama. These priorities are reflected in specific page and styling decisions:
+
+- **Phone browsing:** The shared `.container` uses a fluid width with a maximum width and responsive side padding. The homepage category cards begin in one column, change to two columns at `48em`, and three at `68em` (`css/layout.css` and `css/components.css`). The shop layout stacks its filter area above the products on narrow screens, then places it beside the product grid at `60em`. The shop product grid changes from two columns to three at that breakpoint. The header uses a mobile navigation toggle and switches to horizontal navigation on wider screens.
+- **Understanding products:** The shop cards show product names, prices, descriptions, and images with descriptive alternative text. Each card links to its corresponding section in `product-details.html`, where customers can read further product information and care or suitability notes.
+- **Finding information:** Shared navigation links connect the home, shop, and plant-care pages. The homepage category cards link to related catalogue products, while the skip link lets keyboard users jump directly to the main content.
+- **Contacting or visiting Ama:** The header and contact area provide a `tel:` link, and the footer includes a directions link to the shop location.
+- **Consistent presentation:** Shared CSS variables define the colors, type sizes, and spacing scale. The same forest-green, sage, and warm-cream palette is used across the page components.
 
 ### Verification
 
-- I checked all four pages in a browser at viewport widths of 320px, 352px, 390px, 576px, 767px, 768px, 960px, 1088px, and 1440px. At those widths, no page had horizontal document overflow. The mobile navigation toggle appeared below 768px; horizontal navigation appeared at 768px and wider.
-
-- I confirmed each page has a main landmark and skip link; all `aria-labelledby` references point to existing IDs; care guidance is present in labeled sections; and local image paths resolve.
-- I tested keyboard focus on the skip link and mobile navigation. A broader screen-reader and assistive-technology audit is still recommended.
+- I checked all four pages in a browser against necessary viewport related to where something breaks;  widths of 320px, 352px, 390px, 576px, 767px, 768px, 960px, 1088px, and 1440px. At those widths, no page had horizontal document overflow. The mobile navigation toggle appeared below 768px; horizontal navigation appeared at 768px and wider.
+- I tested keyboard focus on the skip link and mobile navigation.
 
 ### Trade-offs and remaining limitations
 
-- The homepage contact form has labelled, required fields and browser validation, but no configured action or server endpoint. With no `method` specified, it defaults to GET and may put submitted field values in the URL. It does not deliver messages to Ama or show a success confirmation. Do not use it for real enquiries until a submission service is configured.
-- The shop category links jump to product items, but the price range and sort control are visual placeholders; they do not filter or reorder products for now, will be implemented with jvascript later.
-- The focus indicator and skip link are implemented as baseline keyboard-navigation support.
+- The shop category dropdown and price range are presentational controls only; they do not filter the catalogue yet. Product search is also a visual field and does not search until behavior is added.
+- The homepage contact form has labelled, required fields and browser validation, but no configured action or server endpoint. It does not deliver messages to Ama or show a success confirmation.
+- The plant-care question headings show plus icons, but their descriptions are currently hidden and cannot be expanded. Accordion behavior remains to be implemented with javascript.
+- The focus indicator and skip link provide baseline keyboard-navigation support for accesibility; 
 
 ## 5. Additional Improvement
 
-### Frequently Asked Questions (FAQ) Section
+### Frequently Asked Questions (FAQ) Content
 
-As an additional improvement, I introduced a Frequently Asked Questions section using accordions.
-
-The purpose of this feature is to help visitors, particularly first-time plant owners, find answers to common questions without having to contact Ama for every enquiry. Visitors can expand a question to read its answer and close it when they are finished.
-
-This makes useful information easier to access, and may reduce the number of repetitive questions Ama has to answer. It also gives customers a convenient way to obtain basic information before deciding to visit or contact the shop.
+The homepage includes common plant-care questions and answers for visitors, particularly first-time plant owners. The question headings are styled with plus icons, and the answer text is currently hidden. The planned accordion interaction is not yet implemented, so this content is not currently available to visitors through the page.
 
 ## Project structure
 
