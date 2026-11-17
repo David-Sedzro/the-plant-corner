@@ -135,24 +135,24 @@
 }
 
 /* Open menu when toggle is checked on mobile */
-.site-header__toggle-input:checked ~ .site-header__nav {
+.site-header__toggle-input:checked~.site-header__nav {
   display: block;
 }
 
-.site-header__toggle-input:checked ~ .site-header__actions .site-header__toggle .icon {
+.site-header__toggle-input:checked~.site-header__actions .site-header__toggle .icon {
   opacity: 0;
 }
 
-.site-header__toggle-input:checked ~ .site-header__actions .site-header__toggle::before,
-.site-header__toggle-input:checked ~ .site-header__actions .site-header__toggle::after {
+.site-header__toggle-input:checked~.site-header__actions .site-header__toggle::before,
+.site-header__toggle-input:checked~.site-header__actions .site-header__toggle::after {
   opacity: 1;
 }
 
-.site-header__toggle-input:checked ~ .site-header__actions .site-header__toggle::before {
+.site-header__toggle-input:checked~.site-header__actions .site-header__toggle::before {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.site-header__toggle-input:checked ~ .site-header__actions .site-header__toggle::after {
+.site-header__toggle-input:checked~.site-header__actions .site-header__toggle::after {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
@@ -826,7 +826,7 @@
   gap: var(--space-xs);
 }
 
-.product-detail__facts > div {
+.product-detail__facts>div {
   padding-bottom: var(--space-xs);
   border-bottom: 1px solid var(--color-border);
 }
@@ -972,6 +972,18 @@
   padding: var(--space-md) var(--space-xs);
   color: var(--color-primary);
   text-align: left;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+/* Hide default browser details/summary markers */
+.care-guide__summary::-webkit-details-marker {
+  display: none;
+}
+
+.care-guide__summary::marker {
+  display: none;
 }
 
 .care-guide__summary::after {
@@ -980,6 +992,10 @@
   content: "+";
   font-size: 1.25rem;
   line-height: 1;
+}
+
+.care-guide__item[open] > .care-guide__summary::after {
+  content: "−";
 }
 
 .care-guide__question {
@@ -995,9 +1011,13 @@
   font-size: var(--font-size-small);
 }
 
-.care-guide__body p + p,
-.care-guide__body p + ul,
-.care-guide__body ul + p {
+.care-guide__item[open] > .care-guide__body {
+  display: block;
+}
+
+.care-guide__body p+p,
+.care-guide__body p+ul,
+.care-guide__body ul+p {
   margin-top: var(--space-sm);
 }
 
@@ -1148,7 +1168,7 @@
   text-decoration: none;
 }
 
-.site-footer__brand > span {
+.site-footer__brand>span {
   min-width: 0;
   white-space: nowrap;
 }
