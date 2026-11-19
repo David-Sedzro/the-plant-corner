@@ -73,8 +73,8 @@ I corrected the navigation structure so that the links appear in a logical order
 
 ## Further improvement
 
-- Who it helps: [the person or situation]
-- The barrier they faced: [...]
-- What I built: [...]
-- Why it is worth doing for the business: [...]
-- How I tested it: [...]
+- Who it helps: Visitors who prefer a darker interface, including people browsing in dimly lit environments or who find bright pages uncomfortable.
+- The barrier they faced: The site previously offered only a light palette, which could feel too bright in some settings. This is a comfort and preference improvement, not a claim that dark mode benefits every person with low vision.
+- What I built: I added a dark-mode control across the site, with a palette based on shared colour tokens. It follows the visitor's operating-system preference until they choose a theme, then saves that choice across pages. The control is a labelled button with an `aria-pressed` state and a visible keyboard focus indicator; its moon and sun icons change with the selected theme.
+- Why it is worth doing for the business: A more comfortable browsing option can make the shop easier to use in different environments and lets visitors choose the presentation that works for them. This may reduce friction while browsing products and care information.
+- How I tested it: I checked system light and dark preferences, keyboard and pointer toggling, the button's pressed state, and saved preferences across pages. At 320px, the logo and Contact, theme, and menu controls stay on one row with 44px targets; I also checked for horizontal overflow at viewport widths from 320px to 1440px. Measured dark-theme contrast included 16.06:1 for body text, 9.21:1 for links on surfaces, and 3.05:1 for borders.
