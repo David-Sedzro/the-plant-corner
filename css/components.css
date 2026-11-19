@@ -1081,6 +1081,10 @@
   font-weight: 600;
 }
 
+.required-indicator {
+  color: var(--color-error);
+}
+
 .form-group__input,
 .form-group__textarea {
   width: 100%;

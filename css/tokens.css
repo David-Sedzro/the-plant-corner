@@ -12,6 +12,7 @@
   --color-text-inverse: #FFFFFF;
   --color-border: #D4D0C8;
   --color-border-inverse: rgba(255, 255, 255, 0.15);
+  --color-error: #B42318;
   /* Card System (Tied directly to brand palette) */
   --color-card-bg: var(--color-background);
   --color-card-title: var(--color-text-inverse);
