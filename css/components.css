@@ -342,6 +342,90 @@
   }
 }
 
+/* Pause animation state (WCAG 2.2.2 Pause, Stop, Hide) */
+.hero.is-paused .hero__slide {
+  animation-play-state: paused;
+}
+
+/* Carousel Play/Pause Button */
+.hero__carousel-control {
+  position: absolute;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-height: 2.25rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background-color: #ffffff;
+  color: var(--color-primary-dark);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
+  font-family: var(--font-body);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hero__carousel-control:hover {
+  transform: scale(1.04);
+  background-color: #f7f7f7;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.35);
+}
+
+.hero__carousel-control:focus-visible {
+  outline: 0.1875rem solid #ffffff;
+  outline-offset: 0.1875rem;
+}
+
+.hero__carousel-control .icon {
+  width: 0.8125rem;
+  height: 0.8125rem;
+  flex-shrink: 0;
+}
+
+.hero__carousel-control-text {
+  font-size: 0.8125rem;
+  letter-spacing: 0.01em;
+}
+
+/* Default state: playing -> show pause icon, hide play icon */
+.hero__carousel-control .icon--play {
+  display: none;
+}
+
+.hero__carousel-control .icon--pause {
+  display: block;
+}
+
+/* Paused state -> show play icon, hide pause icon */
+.hero.is-paused .hero__carousel-control .icon--play {
+  display: block;
+}
+
+.hero.is-paused .hero__carousel-control .icon--pause {
+  display: none;
+}
+
+/* Respect user system preference for reduced motion (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  .hero__slide {
+    animation: none;
+  }
+
+  .hero__slide:first-child {
+    opacity: 1;
+  }
+
+  .hero__carousel-control {
+    display: none;
+  }
+}
+
 .hero__content {
   position: relative;
   z-index: 2;
