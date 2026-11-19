@@ -11,6 +11,10 @@
   /* UI, Surface & Text Colours */
   --color-transparent: transparent;
   --color-primary-dark: #1A3628;
+  --color-header-background: var(--color-primary);
+  --color-footer-background: var(--color-primary-dark);
+  --border-header-separator: 0 solid var(--color-transparent);
+  --border-footer-separator: 0 solid var(--color-transparent);
   --color-surface: #FFFFFF;
   --color-text-primary: #1A1A1A;
   --color-text-secondary: #4A4A4A;
@@ -88,6 +92,10 @@
   --color-link: #A8D5B2;
   --color-focus: #B9E4C1;
   --color-border: #64746A;
+  --color-header-background: var(--color-background);
+  --color-footer-background: var(--color-background);
+  --border-header-separator: 1px solid var(--color-border);
+  --border-footer-separator: 1px solid var(--color-border);
   --color-border-inverse: rgba(255, 255, 255, 0.28);
   --color-error: #FF8A80;
   --color-hero-control-background: #26352C;
@@ -112,6 +120,10 @@
     --color-link: #A8D5B2;
     --color-focus: #B9E4C1;
     --color-border: #64746A;
+    --color-header-background: var(--color-background);
+    --color-footer-background: var(--color-background);
+    --border-header-separator: 1px solid var(--color-border);
+    --border-footer-separator: 1px solid var(--color-border);
     --color-border-inverse: rgba(255, 255, 255, 0.28);
     --color-error: #FF8A80;
     --color-hero-control-background: #26352C;

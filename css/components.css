@@ -4,7 +4,8 @@
 
 /* Site Header & Navigation */
 .site-header {
-  background-color: var(--color-primary);
+  background-color: var(--color-header-background);
+  border-bottom: var(--border-header-separator);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -1334,7 +1335,8 @@ html.js .site-header__theme-toggle {
 
 /* Footer */
 .site-footer {
-  background-color: var(--color-primary-dark);
+  background-color: var(--color-footer-background);
+  border-top: var(--border-footer-separator);
   color: var(--color-text-inverse);
   padding-top: var(--space-2xl);
   font-size: var(--font-size-small);
