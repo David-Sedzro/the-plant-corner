@@ -34,12 +34,24 @@
           </span>
         </a>
 
-        <input
-          type="checkbox"
-          id="nav-toggle"
-          class="site-header__toggle-input"
-          aria-label="Toggle navigation"
-        />
+        <nav
+          class="site-header__nav site-header__nav--desktop"
+          aria-label="Main navigation"
+        >
+          <ul class="site-header__nav-list">
+            <li><a href="index.html" class="site-header__nav-link">Home</a></li>
+            <li><a href="shop.html" class="site-header__nav-link">Shop</a></li>
+            <li>
+              <a href="index.html#about" class="site-header__nav-link">About</a>
+            </li>
+            <li>
+              <a href="care-tips.html" class="site-header__nav-link"
+                >Plant Care</a
+              >
+            </li>
+          </ul>
+        </nav>
+
         <div class="site-header__actions">
           <a
             href="tel:0244000000"
@@ -54,32 +66,32 @@
             <span>Contact</span>
           </a>
 
-          <label
-            for="nav-toggle"
-            class="site-header__toggle"
-            aria-label="Toggle navigation menu"
-          >
-            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
-              <line x1="4" x2="20" y1="12" y2="12" />
-              <line x1="4" x2="20" y1="6" y2="6" />
-              <line x1="4" x2="20" y1="18" y2="18" />
-            </svg>
-          </label>
+          <details class="site-header__menu">
+            <summary class="site-header__toggle">
+              <span class="site-header__toggle-label">Menu</span>
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <line x1="4" x2="20" y1="12" y2="12" />
+                <line x1="4" x2="20" y1="6" y2="6" />
+                <line x1="4" x2="20" y1="18" y2="18" />
+              </svg>
+            </summary>
+            <nav
+              class="site-header__nav site-header__nav--mobile"
+              aria-label="Main navigation"
+            >
+              <ul class="site-header__nav-list">
+                <li><a href="index.html" class="site-header__nav-link">Home</a></li>
+                <li><a href="shop.html" class="site-header__nav-link">Shop</a></li>
+                <li>
+                  <a href="index.html#about" class="site-header__nav-link">About</a>
+                </li>
+                <li>
+                  <a href="care-tips.html" class="site-header__nav-link">Plant Care</a>
+                </li>
+              </ul>
+            </nav>
+          </details>
         </div>
-        <nav class="site-header__nav" aria-label="Main navigation">
-          <ul class="site-header__nav-list">
-            <li><a href="index.html" class="site-header__nav-link">Home</a></li>
-            <li><a href="shop.html" class="site-header__nav-link">Shop</a></li>
-            <li>
-              <a href="index.html#about" class="site-header__nav-link">About</a>
-            </li>
-            <li>
-              <a href="care-tips.html" class="site-header__nav-link"
-                >Plant Care</a
-              >
-            </li>
-          </ul>
-        </nav>
       </div>
     </header>
 

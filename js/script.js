@@ -1,6 +1,23 @@
 // Ama's Plant Corner — script.js
-// This file is intentionally empty.
-// You will add the interactive behaviour for this page here in Applied JavaScript.
+
+// === SECTION 0: Hero background carousel pause/play (WCAG 2.2.2 Pause, Stop, Hide) ===
+const carouselToggle = document.getElementById('carousel-toggle');
+const hero = document.querySelector('.hero');
+
+if (carouselToggle && hero) {
+  carouselToggle.addEventListener('click', () => {
+    const isPaused = hero.classList.toggle('is-paused');
+    carouselToggle.setAttribute('aria-pressed', String(isPaused));
+    carouselToggle.setAttribute(
+      'aria-label',
+      isPaused ? 'Play background animation' : 'Pause background animation'
+    );
+    const textSpan = carouselToggle.querySelector('.hero__carousel-control-text');
+    if (textSpan) {
+      textSpan.textContent = isPaused ? 'Play' : 'Pause';
+    }
+  });
+}
 
 // === SECTION 1: Plant care guide accordion ===
 // Each .guide-trigger should expand and collapse its paired .guide-body when clicked.
