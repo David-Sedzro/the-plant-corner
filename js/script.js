@@ -7,7 +7,6 @@ const hero = document.querySelector('.hero');
 if (carouselToggle && hero) {
   carouselToggle.addEventListener('click', () => {
     const isPaused = hero.classList.toggle('is-paused');
-    carouselToggle.setAttribute('aria-pressed', String(isPaused));
     carouselToggle.setAttribute(
       'aria-label',
       isPaused ? 'Play background animation' : 'Pause background animation'
@@ -19,14 +18,22 @@ if (carouselToggle && hero) {
   });
 }
 
-// === SECTION 1: Plant care guide accordion ===
-// Each .guide-trigger should expand and collapse its paired .guide-body when clicked.
+// This frontend-only form confirms valid input but does not deliver messages.
+const contactForm = document.querySelector('.contact-form');
 
-// === SECTION 2: Inquiry tracker ===
-// When the inquiry form is submitted, add the customer's name and question
-// to the list below the form. Prevent the page from refreshing on submit.
+if (contactForm) {
+  const contactFormStatus = contactForm.querySelector('.contact-form__status');
 
-// === SECTION 3: Contact form ===
-// Validate the contact form before submission.
-// Show a success message when all fields are correctly filled in.
-// If a required field is missing, tell the user what needs to be fixed.
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (!contactFormStatus) {
+      console.error('Contact form status message is missing.');
+      return;
+    }
+
+    contactFormStatus.textContent =
+      'Thanks! Your message has been submitted successfully. will get back to you as soon as possible.';
+    contactFormStatus.hidden = false;
+  });
+}

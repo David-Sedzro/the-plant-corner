@@ -406,7 +406,7 @@ html.js .site-header__theme-toggle {
   }
 }
 
-/* Pause animation state (WCAG 2.2.2 Pause, Stop, Hide) */
+/* Pause animation state */
 .hero.is-paused .hero__slide {
   animation-play-state: paused;
 }
@@ -432,7 +432,10 @@ html.js .site-header__theme-toggle {
   font-weight: 600;
   cursor: pointer;
   line-height: 1;
-  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .hero__carousel-control:hover {
@@ -1027,7 +1030,7 @@ html.js .site-header__theme-toggle {
   gap: var(--space-xs);
 }
 
-.product-detail__facts>div {
+.product-detail__facts > div {
   padding-bottom: var(--space-xs);
   border-bottom: 1px solid var(--color-border);
 }
@@ -1084,7 +1087,10 @@ html.js .site-header__theme-toggle {
 .about__image-wrapper::after {
   position: absolute;
   inset: 45% 0 0;
-  background: linear-gradient(var(--color-transparent), var(--color-about-image-scrim));
+  background: linear-gradient(
+    var(--color-transparent),
+    var(--color-about-image-scrim)
+  );
   content: "";
   pointer-events: none;
 }
@@ -1217,9 +1223,9 @@ html.js .site-header__theme-toggle {
   display: block;
 }
 
-.care-guide__body p+p,
-.care-guide__body p+ul,
-.care-guide__body ul+p {
+.care-guide__body p + p,
+.care-guide__body p + ul,
+.care-guide__body ul + p {
   margin-top: var(--space-sm);
 }
 
@@ -1325,6 +1331,12 @@ html.js .site-header__theme-toggle {
   min-width: 0;
 }
 
+.contact-form__status {
+  color: var(--color-link);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+}
+
 .contact-form fieldset {
   display: grid;
   gap: var(--space-md);
@@ -1376,7 +1388,7 @@ html.js .site-header__theme-toggle {
   text-decoration: none;
 }
 
-.site-footer__brand>span {
+.site-footer__brand > span {
   min-width: 0;
   white-space: nowrap;
 }

@@ -168,7 +168,6 @@
           class="hero__carousel-control"
           id="carousel-toggle"
           aria-label="Pause background animation"
-          aria-pressed="false"
         >
           <svg class="icon icon--pause" aria-hidden="true" viewBox="0 0 24 24">
             <rect
@@ -431,7 +430,7 @@
               </p>
             </div>
 
-            <form class="form contact-form">
+            <form class="form contact-form" method="post">
               <p>
                 Fields marked with an asterisk (<span
                   class="required-indicator"
@@ -468,8 +467,13 @@
                   id="contact-phone"
                   name="phone"
                   autocomplete="tel"
+                  inputmode="tel"
+                  pattern="(?:0|\+233)[\x20\x2d]?(?:[0-9][\x20\x2d]?){8}[0-9]"
+                  title="Enter a 10-digitnumber starting with 0 or a number starting with +233. Spaces and hyphens are optional."
+                  placeholder="0244000000"
                   required
                 />
+
               </div>
               <div class="form-group">
                 <label class="form-group__label" for="contact-email"
@@ -500,6 +504,7 @@
               <button class="btn btn--primary" type="submit">
                 Send message
               </button>
+              <p class="contact-form__status" role="status" hidden></p>
             </form>
           </div>
         </div>
