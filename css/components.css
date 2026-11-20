@@ -27,7 +27,7 @@
   min-width: 0;
   flex: 0 1 auto;
   font-family: var(--font-heading);
-  font-size: clamp(0.75rem, 2.2vw, 1rem);
+  font-size: clamp(var(--font-size-xs), 2.2vw, 1rem);
   line-height: 1.2;
   color: var(--color-text-inverse);
   text-decoration: none;
@@ -88,8 +88,8 @@
 
 .site-header__theme-toggle {
   display: none;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
   padding: 0;
   place-items: center;
   border: 0;
@@ -129,8 +129,8 @@ html.js .site-header__theme-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
   cursor: pointer;
   color: var(--color-text-inverse);
   border-radius: var(--radius-sm);
@@ -237,7 +237,7 @@ html.js .site-header__theme-toggle {
 .site-header__nav-link {
   display: flex;
   align-items: center;
-  min-height: 2.75rem;
+  min-height: var(--touch-target-min);
   padding: var(--space-xs) var(--space-sm);
   color: var(--color-text-inverse);
   text-decoration: none;
@@ -282,8 +282,8 @@ html.js .site-header__theme-toggle {
 
 @media (max-width: 48em) {
   .site-header__call {
-    min-width: 2.75rem;
-    min-height: 2.75rem;
+    min-width: var(--touch-target-min);
+    min-height: var(--touch-target-min);
   }
 }
 
@@ -300,7 +300,7 @@ html.js .site-header__theme-toggle {
   }
 
   .site-header__logo {
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
     gap: var(--space-2xs);
   }
 
@@ -318,8 +318,8 @@ html.js .site-header__theme-toggle {
   }
 
   .site-header__call {
-    min-width: 2.75rem;
-    min-height: 2.75rem;
+    min-width: var(--touch-target-min);
+    min-height: var(--touch-target-min);
     padding: 0;
     justify-content: center;
     gap: 0;
@@ -442,8 +442,8 @@ html.js .site-header__theme-toggle {
 }
 
 .hero__carousel-control:focus-visible {
-  outline: 0.1875rem solid var(--color-text-inverse);
-  outline-offset: 0.1875rem;
+  outline: var(--focus-ring-width) solid var(--color-text-inverse);
+  outline-offset: var(--focus-ring-offset);
 }
 
 .hero__carousel-control .icon {
@@ -538,7 +538,7 @@ html.js .site-header__theme-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.75rem;
+  min-height: var(--touch-target-min);
   padding: var(--space-xs) var(--space-lg);
   font-size: var(--font-size-small);
   font-weight: 600;
@@ -579,8 +579,8 @@ html.js .site-header__theme-toggle {
 }
 
 .hero .btn:focus-visible {
-  outline: 0.1875rem solid var(--color-text-inverse);
-  outline-offset: 0.1875rem;
+  outline: var(--focus-ring-width) solid var(--color-text-inverse);
+  outline-offset: var(--focus-ring-offset);
   box-shadow: 0 0 0 0.375rem var(--color-primary-dark);
 }
 
@@ -794,7 +794,7 @@ html.js .site-header__theme-toggle {
   display: block;
   width: 100%;
   min-width: 0;
-  min-height: 2.75rem;
+  min-height: var(--touch-target-min);
   padding: var(--space-xs) var(--space-sm);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
@@ -1269,7 +1269,7 @@ html.js .site-header__theme-toggle {
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: var(--space-2xs);
 }
 
 .form-group__label {
@@ -1284,7 +1284,7 @@ html.js .site-header__theme-toggle {
 .form-group__input,
 .form-group__textarea {
   width: 100%;
-  min-height: 2.75rem;
+  min-height: var(--touch-target-min);
   padding: var(--space-xs) var(--space-sm);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
@@ -1505,6 +1505,6 @@ html.js .site-header__theme-toggle {
   padding-block: var(--space-md);
   border-top: 1px solid var(--color-border-inverse);
   text-align: center;
-  font-size: 0.75rem;
+  font-size: var(--font-size-xs);
   color: var(--color-text-inverse-subtle);
 }

@@ -78,18 +78,11 @@ a {
 }
 
 :focus-visible {
-  outline: 0.1875rem solid var(--color-focus);
-  outline-offset: 0.1875rem;
+  outline: var(--focus-ring-width) solid var(--color-focus);
+  outline-offset: var(--focus-ring-offset);
 }
 
-.site-header :focus-visible:not(.site-header__call) {
-  outline-color: var(--color-text-inverse);
-}
-
-.site-header__call:focus-visible {
-  outline-color: var(--color-text-inverse);
-}
-
+.site-header :focus-visible,
 .site-footer :focus-visible {
   outline-color: var(--color-text-inverse);
 }
