@@ -8,13 +8,13 @@ The audience includes nearby shoppers using phones and people who are new to pla
 
 ### Page sketch
 
-[Open the Ama's Plant Corner sketch in Figma](https://www.figma.com/design/GGDLAYadqjGMbkU1E5HfmW/Ama-plant-corner-sketch-Layout?node-id=0-1&t=Vl0HJyectuqEgCjX-1). The exported desktop and mobile homepage wireframe is also included here so the design can be reviewed with the project.
+[Open the Ama&#39;s Plant Corner sketch in Figma](https://www.figma.com/design/GGDLAYadqjGMbkU1E5HfmW/Ama-plant-corner-sketch-Layout?node-id=0-1&t=Vl0HJyectuqEgCjX-1). The exported desktop and mobile homepage wireframe is also included here so the design can be reviewed with the project.
 
 ![Desktop and mobile wireframe sketch of the homepage layout](Sketched.png)
 
 ### Why the content is ordered this way
 
-The header and hero introduce the shop and give customers clear next steps. Product categories follow so shoppers can quickly see what Ama sells. The About section introduces the sellers expertise and what they offer which builds familiarity and trust. The FAQ gives first-time plant owners useful information before they contact Ama. Contact and visit details remain easy to find in the lower page and footer.
+The header and hero introduce the shop and give customers clear next steps. Product categories follow so shoppers can quickly see what Ama sells. The About section introduces Ama's expertise and what she offers, building familiarity and trust. The FAQ gives first-time plant owners useful information before they contact Ama. Contact and visit details remain easy to find in the lower page and footer.
 
 The shop catalogue, product details, and extended care advice each have their own page so customers can go directly to the information they need without making the homepage unwieldy, particularly on mobile.
 
@@ -78,26 +78,25 @@ The rebuild prioritizes customers' main tasks: browsing on a phone, understandin
 - **Phone browsing:** The shared `.container` uses a fluid width with a maximum width and responsive side padding. The homepage category cards begin in one column, change to two columns at `48em`, and three at `68em` (`css/layout.css` and `css/components.css`). The shop layout stacks its filter area above the products on narrow screens, then places it beside the product grid at `60em`. The shop product grid changes from two columns to three at that breakpoint. The header uses a mobile navigation toggle and switches to horizontal navigation on wider screens.
 - **Understanding products:** The shop cards show product names, prices, descriptions, and images with descriptive alternative text. Each card links to its corresponding section in `product-details.html`, where customers can read further product information and care or suitability notes.
 - **Finding information:** Shared navigation links connect the home, shop, and plant-care pages. The homepage category cards link to related catalogue products, while the skip link lets keyboard users jump directly to the main content.
+- **Keyboard access:** Visible focus indicators help keyboard users track their position as they move through interactive elements. The skip link lets them jump directly to the main content.
 - **Contacting or visiting Ama:** The header and contact area provide a `tel:` link, and the footer includes a directions link to the shop location.
 - **Consistent presentation:** Shared CSS variables define the colors, type sizes, and spacing scale. The same forest-green, sage, and warm-cream palette is used across the page components.
 
 ### Verification
 
-- I checked all four pages in a browser against necessary viewport related to where something breaks;  widths of 320px, 352px, 390px, 576px, 767px, 768px, 960px, 1088px, and 1440px. At those widths, no page had horizontal document overflow. The mobile navigation toggle appeared below 768px; horizontal navigation appeared at 768px and wider.
+- I checked all four pages in a browser at widths of 320px, 352px, 390px, 576px, 767px, 768px, 960px, 1088px, and 1440px. At those widths, no page had horizontal document overflow. The mobile navigation toggle appeared below 768px; horizontal navigation appeared at 768px and wider.
 - I tested keyboard focus on the skip link and mobile navigation.
 
 ### Trade-offs and remaining limitations
 
-- The shop category dropdown and price range are presentational controls only; they do not filter the catalogue yet. Product search is also a visual field and does not search until behavior is added.
-- The homepage contact form has labelled, required fields and browser validation, but no configured action or server endpoint. It does not deliver messages to Ama or show a success confirmation.
-- The plant-care question headings show plus icons, but their descriptions are currently hidden and cannot be expanded. Accordion behavior remains to be implemented with javascript.
-- The focus indicator and skip link provide baseline keyboard-navigation support for accesibility; 
+- The shop category selector, price range, and search field are visual controls only; they do not filter or search the catalogue.
+- The homepage contact form validates required fields and displays a demo success message for valid input. It is not connected to a submission service, so no message is sent to Ama.
 
-## 5. Additional Improvement
+## 5. Additional improvement
 
-### Frequently Asked Questions (FAQ) Content
+### Dark mode
 
-The homepage includes common plant-care questions and answers for visitors, particularly first-time plant owners. The question headings are styled with plus icons, and the answer text is currently hidden. The planned accordion interaction is not yet implemented, so this content is not currently available to visitors through the page.
+The header theme toggle lets visitors switch between light and dark themes. When there is no saved choice, the page follows the operating system's colour-scheme preference. A manually selected theme is saved in local storage and retained on later visits.
 
 ## Project structure
 
@@ -113,11 +112,15 @@ amas-plant-corner/
 |   |-- layout.css
 |   `-- components.css
 |-- js/
-|   `-- script.js
+|   |-- script.js
+|   `-- theme.js
 |-- images/
 |   |-- products/
 |   |-- hero/
-|   `-- about/
+|   |-- about/
+|   `-- category/
+|-- docs/
+|   `-- ee02/
 `-- Sketched.png
 ```
 

@@ -1,15 +1,8 @@
 # EE02 write-up: fixes and further improvement
 
-- **My site:** [Ama&#39;s Plant Corner](https://david-sedzro.github.io/the-plant-corner/)
-- **Audit received from:** Alvin Etornam Laryea
-- **Original audit:** [David Sedzro&#39;s audited write-up](https://github.com/laryea-0/amas-plant-corner/blob/e6595fc2eede3226e2a152d012e47cb3ac120548/docs/ee02/audit-of-david-sedzro.md)
-
-## Contents
-
-1. [Fixes](#fixes)
-2. [Issues I found myself](#issues-i-found-myself)
-3. [Findings I did not fix or disagree with](#findings-i-did-not-fix-or-disagree-with)
-4. [Further improvement](#further-improvement)
+- **My site:** [david-sedzro.github.io/the-plant-corner](https://david-sedzro.github.io/the-plant-corner/)
+- **Audit received from:** Alvin Etornam Laryea, [github.com/laryea-0/amas-plant-corner/blob/e6595fc2eede3226e2a152d012e47cb3ac120548/docs/eeo2/audit-of-david-sedzro.md](https://github.com/laryea-0/amas-plant-corner/blob/e6595fc2eede3226e2a152d012e47cb3ac120548/docs/eeo2/audit-of-david-sedzro.md)
+-
 
 ## Fixes
 
@@ -19,11 +12,11 @@
 - **Cause:** In `css/styles.css`, `.site-header__nav-btn` had custom background and text styling without an explicit `:focus-visible` rule, and default browser focus rings were either overridden or visually indistinguishable against the header background.
 - **What I changed:** In `css/styles.css`, added an explicit `:focus-visible` pseudo-class for `.site-header__nav-btn` with a 3px high-contrast outline (`outline: 3px solid var(--color-primary-dark);`) and an `outline-offset: 3px;`.
 - **Why this fixes the cause, not just the symptom:** Declaring `:focus-visible` with a specified thickness, high contrast, and offset ensures that whenever a keyboard user tabs to the button, the browser renders an undeniable visual highlight without altering mouse click behavior.
-- **How I verified it:** Tabbed through the header in Chrome and Firefox. Confirmed a distinct dark green outline with 3px separation appears immediately upon focusing the Contact button. Meets WCAG 2.4.7 (Focus Visible, Level AA).
+- **How I verified it:** Tabbed through the header in Chrome and Microsoft Edge. Confirmed a distinct dark green outline with 3px separation appears immediately upon focusing the Contact button. Meets WCAG 2.4.7 (Focus Visible, Level AA).
 
-### Finding 2: Navigation menu clips the last navigation link at 400% zoom
+### Finding 2: Navigation menu clips the last navigation link (Plant Care) at 400% zoom
 
-- **Reproduced before fixing:** Yes. When setting browser zoom to 400% (equivalent to a 320px wide viewport with limited height, such as 320 × 180 CSS pixels), expanding the mobile navigation menu pushed the last navigation item ("Contact") below the visible screen. The menu could not be scrolled down to reveal the link.
+- **Reproduced before fixing:** Yes. When setting browser zoom to 400% (equivalent to a 320px wide viewport with limited height, such as 320 × 180 CSS pixels), expanding the mobile navigation menu pushed the last navigation item below the visible screen. The menu could not be scrolled down to reveal the link.
 - **Cause:** `.site-header__nav--mobile` in `css/components.css` lacked vertical overflow handling and dynamic viewport height bounds, causing content exceeding screen height to be cut off.
 - **What I changed:** In `css/components.css`, updated `.site-header__nav--mobile` by applying `max-height: calc(100dvh - 4.25rem); overflow-y: auto; overscroll-behavior: contain;`.
 - **Why this fixes the cause, not just the symptom:** This constrains the dropdown to the exact available vertical space beneath the sticky header and gives the navigation list its own scroll container, guaranteeing all links remain reachable regardless of extreme zoom or short viewports.
@@ -42,12 +35,12 @@
 - **Reproduced before fixing:** Yes. Inspecting the contact form on `index.html` showed that fields (Name, Email, Message) had no visual indication of being required before attempting to submit. A user only discovered a field was mandatory when the browser halted submission with an error alert.
 - **Cause:** The form inputs relied solely on the HTML5 `required` attribute without visual asterisks or an upfront instruction statement explaining which fields were mandatory.
 - **What I changed:** In `index.html`, added an upfront explanatory paragraph (`<p class="form__instructions">Fields marked with an asterisk (<span aria-hidden="true">*</span>) are required.</p>`), added `<span class="required-indicator" aria-hidden="true">*</span>` inside each required `<label>`, and retained `aria-required="true"`.
-- **Why this fixes the cause, not just the symptom:** Providing both an upfront instruction statement and per-label indicators ensures users understand requirements before interacting, preventing submission errors. Using `aria-hidden="true"` on the asterisk prevents screen readers from redundantly announcing "star" or "asterisk" when they already announce the field as required.
+- **Why this fixes the cause, not just the symptom:** Providing both an upfront instruction statement and per-label indicators ensures users understand requirements before interacting, preventing submission errors.
 - **How I verified it:** Visual inspection confirmed clear asterisks and introductory instructions. Screen reader testing (Edge Read Aloud / NVDA) confirmed each field announced its required state cleanly without confusing punctuation artifacts. Meets WCAG 3.3.2 (Labels or Instructions, Level A).
 
 ### Finding 5: Navigation menu toggle uses prohibited ARIA attributes
 
-- **Reproduced before fixing:** Yes. Running Google Lighthouse Mobile identified an accessibility violation: *"Elements use prohibited ARIA attributes: [aria-label] on label.site-header__toggle"* . In the source, an invisible `<input type="checkbox">` CSS hack was used with an `<label class="site-header__toggle" aria-label="Toggle navigation menu">`.
+- **Reproduced before fixing:** Yes. Running Google Lighthouse Mobile identified an accessibility violation: _"Elements use prohibited ARIA attributes: [aria-label] on label.site-header\_\_toggle"_ . In the source, an invisible `<input type="checkbox">` CSS hack was used with an `<label class="site-header__toggle" aria-label="Toggle navigation menu">`.
 - **Cause:** In standard HTML and ARIA specifications, the `<label>` element does not support `aria-label` because it has no recognized widget role. Furthermore, using a checkbox hack for disclosure navigation is an accessibility anti-pattern.
 - **What I changed:** Completely refactored the mobile navigation across `index.html`, `shop.html`, `product-details.html`, and `care-tips.html`. Removed the checkbox input and `<label>`. Replaced them with native, semantic HTML elements: `<details class="site-header__menu">` and `<summary class="site-header__toggle">`, containing a screen-reader-only `<span class="site-header__toggle-label">Menu</span>` and the visual hamburger icon.
 - **Why this fixes the cause, not just the symptom:** Native `<details>` and `<summary>` elements are built-in disclosure widgets. They are natively keyboard operable (`Enter` and `Space` toggle open/close), automatically expose their expanded/collapsed state to the accessibility tree without custom ARIA, and completely eliminate prohibited attributes and JavaScript dependencies.
@@ -121,7 +114,7 @@ No findings were left unfixed and no findings were disagreed with. I rechecked a
 
 ## Further improvement
 
-### Dark mode for people with light sensity
+### Dark mode for people with light sensitivity (photophobia) or migraines
 
 ### Who it Helps
 
@@ -133,7 +126,7 @@ During my consideration of users beyond those identified in the original accessi
 
 The website originally presented its content using a predominantly bright, white background. Although this design may be comfortable for many visitors, it may cause discomfort for people who are sensitive to bright screens. Prolonged exposure to a bright interface can contribute to glare, visual discomfort and eye fatigue for some users.
 
-The important problem was that visitors had no alternative viewing option. Regardless of their visual needs or personal preferences, they were required to use the same bright interface. This could make reading product descriptions, exploring plant information and completing the contact form uncomfortable. In some cases, visitors might decide to leave rather than continue using a website that causes visual discomfort.
+The important problem was that visitors had no alternative viewing option. Regardless of their visual needs or personal preferences, they were required to use the same bright interface. This could make reading product descriptions, exploring plant information or plant care and completing the contact form uncomfortable. In some cases, visitors might decide to leave rather than continue using a website that causes visual discomfort.
 
 ### What I Built
 
