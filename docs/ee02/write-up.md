@@ -2,7 +2,7 @@
 
 - **My site:** [david-sedzro.github.io/the-plant-corner](https://david-sedzro.github.io/the-plant-corner/)
 - **Audit received from:** Alvin Etornam Laryea, [github.com/laryea-0/amas-plant-corner/blob/e6595fc2eede3226e2a152d012e47cb3ac120548/docs/eeo2/audit-of-david-sedzro.md](https://github.com/laryea-0/amas-plant-corner/blob/e6595fc2eede3226e2a152d012e47cb3ac120548/docs/eeo2/audit-of-david-sedzro.md)
--
+- 
 
 ## Fixes
 
@@ -144,7 +144,7 @@ For example, correcting the navigation order helps someone who relies on a keybo
 
 Dark mode provides an alternative for this group. Instead of assuming that one visual presentation works for everybody, it allows visitors to choose the appearance that is more comfortable for them.
 
-This also has practical value for Ama's Plant Corner. The website is intended to help customers explore plants, read product information and access plant-care advice. If a visitor experiences visual discomfort, they may struggle to complete these activities or abandon the website altogether. Providing an alternative theme removes one potential barrier and gives visitors more control over their experience. and also help make the website more welcoming to a wider range of customers, improve the comfort of browsing and potentially reduce departures caused by visual discomfort. M
+This also has practical value for Ama's Plant Corner. The website is intended to help customers explore plants, read product information and access plant-care advice. If a visitor experiences visual discomfort, they may struggle to complete these activities or abandon the website altogether. Providing an alternative theme removes one potential barrier and gives visitors more control over their experience. and also help make the website more welcoming to a wider range of customers, improve the comfort of browsing and potentially reduce departures caused by visual discomfort. 
 
 ### How I Tested It
 

@@ -33,7 +33,7 @@ if (contactForm) {
     }
 
     contactFormStatus.textContent =
-      'Thanks! Your message has been submitted successfully. will get back to you as soon as possible.';
+      'Demo: Thanks! Your message passed validation successfully. Ama would get back to you as soon as possible.';
     contactFormStatus.hidden = false;
   });
 }
