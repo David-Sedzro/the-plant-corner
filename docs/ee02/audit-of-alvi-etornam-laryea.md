@@ -76,6 +76,7 @@ Finding 1: Text and buttons have insufficient colour contrast
 - **How to reproduce:**
 
   Adjust the foreground and background colour combinations to meet the appropriate WCAG contrast requirements. Recheck the updated colours using a contrast checker and WAVE.
+
 - **Evidence:**
 
   - Hero text: 1.16:1.
@@ -86,6 +87,7 @@ Finding 1: Text and buttons have insufficient colour contrast
 
   - **Normal text:** 4.5:1.
   - **Large text:** 3:1.
+
 - **Principle and criterion:** Perceivable; WCAG 2.2, Success Criterion 1.4.3, Contrast (Minimum).
 - **Who it affects and how:** People with low vision, colour-vision deficiencies, and other users who have difficulty distinguishing low-contrast text may struggle to read information or identify interactive elements.
 - **Found by:** WAVE and manual visual inspection.
@@ -102,9 +104,11 @@ Finding 1: Text and buttons have insufficient colour contrast
   2. Select each "Explore" button and the social media link in the footer and What we sell section.
   3. Observe whether it takes you to the expected section.
   4. Repeat with the other navigation links and buttons.
+
 - **Evidence:** WAVE identified three broken same-page links.
 
   [Insert Figure 7: WAVE alert showing the three broken same-page links.]
+
 - **Principle and criterion:** Operable; WCAG 2.2, Success Criterion 2.4.4, Link Purpose (In Context), Level A, where the link purpose or destination is not clear. The missing anchor targets should also be documented as functional navigation defects.
 - **Who it affects and how:** Keyboard users, screen-reader users and visitors relying on links to move around the page may be unable to reach the information they expect.
 - **Found by:** WAVE and manual link testing.
@@ -121,7 +125,7 @@ Finding 1: Text and buttons have insufficient colour contrast
   3. Select the icon.
   4. Observe whether the navigation links appear.
 - **Evidence:**
-- **![1795036211192](image/audit-of-alvi-etornam-laryea/1795036211192.png)                                                                     Principle and criterion:** Operable; WCAG 2.2, Success Criterion 2.1.1, Keyboard, Level A, if the menu cannot be operated using a keyboard. Also assess Success Criterion 4.1.2, Name, Role, Value, if the control does not expose its accessible name, role or state.
+- **![1795036211192](image/audit-of-alvi-etornam-laryea/1795036211192.png) Principle and criterion:** Operable; WCAG 2.2, Success Criterion 2.1.1, Keyboard, Level A, if the menu cannot be operated using a keyboard. Also assess Success Criterion 4.1.2, Name, Role, Value, if the control does not expose its accessible name, role or state.
 - **Who it affects and how:** Mobile visitors and users who depend on the navigation menu may be unable to access the website's other sections.
 - **Found by:** Manual interaction testing.
 - **Severity:** **Significant**
@@ -137,6 +141,7 @@ Finding 1: Text and buttons have insufficient colour contrast
   1. Open the website on a mobile device or set the browser viewport to a mobile width.
   2. Inspect the text in the sections listed above.
   3. Observe the rendered font sizes.
+
 - **Evidence:** [Insert Figure 12: Mobile screenshot showing the small subscription helper text and footer have font size of 11.2px each
 - **Principle and criterion:** Perceivable; WCAG 2.2, Success Criterion 1.4.4, Resize Text, Level AA, if text cannot be resized up to 200% without loss of content or functionality.
 - **Who it affects and how:** People with low vision and users who have difficulty reading small text may struggle to understand product information, form labels and other supporting content.
@@ -155,9 +160,11 @@ Finding 1: Text and buttons have insufficient colour contrast
   3. Observe whether required fields are identified.
   4. Attempt to submit the form without completing the required fields.
   5. Observe the validation message.
+
 - **Evidence:** ![1795035740001](image/audit-of-alvi-etornam-laryea/1795035740001.png)
 
   **Principle and criterion:** Understandable; WCAG 2.2, Success Criterion 3.3.2, Labels or Instructions, Level A.
+
 - **Who it affects and how:** Visitors, including people with cognitive disabilities, may not know which information is compulsory and may encounter avoidable submission errors.
 - **Found by:** Manual form testing.
 - **Severity:** **Moderate**

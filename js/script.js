@@ -20,7 +20,7 @@ if (carouselToggle && hero) {
   });
 }
 
-// This frontend-only form confirms valid input but does not deliver messages.
+// form.
 const contactForm = document.querySelector(".contact-form");
 
 if (contactForm) {
