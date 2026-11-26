@@ -13,7 +13,6 @@
 ## 2. Why is this change needed?
 
 <!-- Explain the problem being solved or the reason for introducing this feature. -->
-<!-- Link any related issues where applicable. -->
 
 -
 
@@ -75,15 +74,7 @@
 
 **After:**
 
-## 8. Related Issues
-
-<!-- Link related issues, tasks, or discussions. -->
-
-Closes #
-
-Related to #
-
-## 9. Review Checklist
+## 8. Review Checklist
 
 ### Code Quality
 
