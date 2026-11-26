@@ -2,17 +2,17 @@
 
 - **My site:** [david-sedzro.github.io/the-plant-corner](https://david-sedzro.github.io/the-plant-corner/)
 - **Audit received from:** Alvin Etornam Laryea, [github.com/laryea-0/amas-plant-corner/blob/e6595fc2eede3226e2a152d012e47cb3ac120548/docs/eeo2/audit-of-david-sedzro.md](https://github.com/laryea-0/amas-plant-corner/blob/e6595fc2eede3226e2a152d012e47cb3ac120548/docs/eeo2/audit-of-david-sedzro.md)
-- 
+-
 
 ## Fixes
 
 ### Finding 1: Navigation link has no visible keyboard focus indicator
 
 - **Reproduced before fixing:** Yes. When tabbing through the navigation bar on the homepage, the "Contact" button received keyboard focus, but its visual appearance remained unchanged. There was no visible outline, border change, or color shift distinguishing the focused button from an unfocused one.
-- **Cause:** In `css/styles.css`, `.site-header__nav-btn` had custom background and text styling without an explicit `:focus-visible` rule, and default browser focus rings were either overridden or visually indistinguishable against the header background.
-- **What I changed:** In `css/styles.css`, added an explicit `:focus-visible` pseudo-class for `.site-header__nav-btn` with a 3px high-contrast outline (`outline: 3px solid var(--color-primary-dark);`) and an `outline-offset: 3px;`.
-- **Why this fixes the cause, not just the symptom:** Declaring `:focus-visible` with a specified thickness, high contrast, and offset ensures that whenever a keyboard user tabs to the button, the browser renders an undeniable visual highlight without altering mouse click behavior.
-- **How I verified it:** Tabbed through the header in Chrome and Microsoft Edge. Confirmed a distinct dark green outline with 3px separation appears immediately upon focusing the Contact button. Meets WCAG 2.4.7 (Focus Visible, Level AA).
+- **Cause:** In `css/styles.css`, interactive header controls like the Contact button (`.site-header__call`) had custom styling without an explicit `:focus-visible` rule, and default browser focus rings were visually indistinguishable against the dark green header background.
+- **What I changed:** In `css/styles.css`, added a global `:focus-visible` rule using design tokens for a 3px outline and 3px offset (`outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset);`), and specified `.site-header :focus-visible` to use a high-contrast white outline (`outline-color: var(--color-text-inverse);`).
+- **Why this fixes the cause, not just the symptom:** Declaring `:focus-visible` with dedicated design tokens and scoping high-contrast white color to `.site-header` ensures that whenever a keyboard user tabs to the Contact button (`.site-header__call`), the browser renders an undeniable visual highlight against the dark header background without altering mouse click behavior.
+- **How I verified it:** Tabbed through the header in Chrome and Microsoft Edge. Confirmed a distinct white outline with 3px separation appears immediately upon focusing the Contact button. Meets WCAG 2.4.7 (Focus Visible, Level AA).
 
 ### Finding 2: Navigation menu clips the last navigation link (Plant Care) at 400% zoom
 
@@ -26,7 +26,7 @@
 
 - **Reproduced before fixing:** Yes. Tabbing onto the hero section call-to-action buttons ("Shop Plants" and "Explore Care Tips") revealed a default or subtle outline that blended into the dark background photograph, failing to provide the required 3:1 non-text contrast against the underlying image.
 - **Cause:** The hero buttons lacked tailored `:focus-visible` styles designed to stand out against variable dark background imagery.
-- **What I changed:** In `css/styles.css`, added high-contrast `:focus-visible` rules for `.hero__actions .btn` using a bright 3px solid white outline with a 3px offset (`outline: 3px solid #ffffff; outline-offset: 3px;`) paired with a dark drop shadow for contrast against lighter areas of photographs.
+- **What I changed:** In css/components.css, added a high-contrast :focus-visible rule for .hero .btn:focus-visible using a 3px white outline with a 3px offset (outline: var(--focus-ring-width) solid var(--color-text-inverse); outline-offset: var(--focus-ring-offset);) paired with a dark outer ring (box-shadow: 0 0 0 0.375rem var(--color-primary-dark);) to guarantee visibility against both light and dark areas of background slides.
 - **Why this fixes the cause, not just the symptom:** Providing a dual-contrast focus ring (light outline with spacing/shadow) ensures the focus indicator remains sharply visible regardless of which rotating image slide is displayed behind it.
 - **How I verified it:** Navigated through the hero section using the `Tab` key across all carousel slide transitions. Confirmed the focus indicator stands out clearly in all frames and exceeds 3:1 contrast against background colors. Meets WCAG 2.4.7 (Focus Visible) and WCAG 1.4.11 (Non-text Contrast).
 
@@ -144,7 +144,7 @@ For example, correcting the navigation order helps someone who relies on a keybo
 
 Dark mode provides an alternative for this group. Instead of assuming that one visual presentation works for everybody, it allows visitors to choose the appearance that is more comfortable for them.
 
-This also has practical value for Ama's Plant Corner. The website is intended to help customers explore plants, read product information and access plant-care advice. If a visitor experiences visual discomfort, they may struggle to complete these activities or abandon the website altogether. Providing an alternative theme removes one potential barrier and gives visitors more control over their experience. and also help make the website more welcoming to a wider range of customers, improve the comfort of browsing and potentially reduce departures caused by visual discomfort. 
+This also has practical value for Ama's Plant Corner. The website is intended to help customers explore plants, read product information and access plant-care advice. If a visitor experiences visual discomfort, they may struggle to complete these activities or abandon the website altogether. Providing an alternative theme removes one potential barrier and gives visitors more control over their experience. and also help make the website more welcoming to a wider range of customers, improve the comfort of browsing and potentially reduce departures caused by visual discomfort.
 
 ### How I Tested It
 
