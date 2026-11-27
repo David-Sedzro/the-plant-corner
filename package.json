@@ -1,13 +1,11 @@
 {
   "name": "amas-plant-corner",
   "version": "1.0.0",
-  "description": "The redesign responds to two priorities identified: customers have difficulty reading and navigating the existing site on mobile, and its visual presentation does not convey the calm, welcoming, knowledgeable character Ama wants for her plant shop.",
-  "main": "index.js",
+  "description": "Ama's plant shop.",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -28,8 +26,6 @@
     "type": "git",
     "url": "git+https://github.com/David-Sedzro/the-plant-corner.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
