@@ -514,6 +514,42 @@
       </section>
     </main>
 
+    <section
+      class="newsletter-section"
+      aria-labelledby="newsletter-section-title"
+    >
+      <div class="container newsletter-section__inner">
+        <div class="newsletter-section__copy">
+          <h2 id="newsletter-section-title">
+            A little more green in your inbox
+          </h2>
+          <p>
+            Get plant-care tips, seasonal advice, and updates from Ama's Plant
+            Corner.
+          </p>
+        </div>
+        <form class="newsletter-form" aria-label="Newsletter signup">
+          <label class="newsletter-form__label" for="newsletter-section-email">
+            Email address
+          </label>
+          <div class="newsletter-form__controls">
+            <input
+              class="newsletter-form__input"
+              id="newsletter-section-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              required
+            />
+            <button class="newsletter-form__button" type="button">
+              Subscribe
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <footer id="footer" class="site-footer">
       <div class="container site-footer__inner">
         <div>
@@ -615,6 +651,33 @@
             rel="noopener noreferrer"
             >Get directions</a
           >
+        </div>
+
+        <div class="site-footer__newsletter">
+          <h2 class="site-footer__heading">Get plant notes</h2>
+          <p class="site-footer__newsletter-copy">
+            Sign up for plant-care tips and shop updates.
+          </p>
+          <form
+            class="newsletter-form newsletter-form--footer"
+            aria-label="Footer newsletter signup"
+          >
+            <label class="newsletter-form__label" for="newsletter-footer-email"
+              >Email address</label
+            >
+            <input
+              class="newsletter-form__input"
+              id="newsletter-footer-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              required
+            />
+            <button class="newsletter-form__button" type="button">
+              Subscribe
+            </button>
+          </form>
         </div>
       </div>
 
