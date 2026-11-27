@@ -1,138 +1,347 @@
-## 1. Planning
+# Ama's Plant Corner — EE03: Dev Tooling & Version Control
 
-### Client and customer needs
+Website for Ama's Plant Corner, a plant shop in Accra. This README covers the setup explanation, the project conventions, the code review of my pair's pull request, and the workflow improvement I added.
 
-The redesign responds to two priorities identified: customers have difficulty reading and navigating the existing site on mobile, and its visual presentation does not convey the calm, welcoming, knowledgeable character Ama wants for her plant shop.
+**Repository:** [David-Sedzro/the-plant-corner](https://github.com/David-Sedzro/the-plant-corner)
 
-The audience includes nearby shoppers using phones and people who are new to plant care. They need to quickly understand what Ama sells, get straightforward care guidance, and find a direct way to contact or visit the shop.
+**Team:** Alvin Etornam Laryea and David Sedzro
 
-### Page sketch
+---
 
-[Open the Ama&#39;s Plant Corner sketch in Figma](https://www.figma.com/design/GGDLAYadqjGMbkU1E5HfmW/Ama-plant-corner-sketch-Layout?node-id=0-1&t=Vl0HJyectuqEgCjX-1). The exported desktop and mobile homepage wireframe is also included here so the design can be reviewed with the project.
+## Quick start
 
-![Desktop and mobile wireframe sketch of the homepage layout](Sketched.png)
-
-### Why the content is ordered this way
-
-The header and hero introduce the shop and give customers clear next steps. Product categories follow so shoppers can quickly see what Ama sells. The About section introduces Ama's expertise and what she offers, building familiarity and trust. The FAQ gives first-time plant owners useful information before they contact Ama. Contact and visit details remain easy to find in the lower page and footer.
-
-The shop catalogue, product details, and extended care advice each have their own page so customers can go directly to the information they need without making the homepage unwieldy, particularly on mobile.
-
-## 2. Pages and structure
-
-- **Homepage - `index.html`:** Introduces the shop, links to product categories, tells customers about Ama, answers common care questions, and provides a contact form.
-- **Shop - `shop.html`:** Groups the catalogue into Houseplants, Pots & Planters, and Soil & Plant Accessories.
-- **Product details - `product-details.html`:** Provides specific information about each catalogue or product item.
-- **Plant care - `care-tips.html`:** Organizes additional care guidance by plant type.
-
-All pages use semantic header, navigation, main, and footer regions. Sections are associated with headings using `aria-labelledby`. Product facts use definition lists, and care guidance is grouped into labeled sections.
-
-### Visual decisions tied to the brief
-
-The styles are split by responsibility: `css/tokens.css` contains shared design values, `css/layout.css` contains reusable page layout, `css/components.css` styles site components, and `css/styles.css` imports them and sets global defaults.
-
-- **Colour:** Forest green (`#254B38`), sage (`#8FA68E`), warm cream (`#F8F6EF`), white surfaces, and dark text support the natural, welcoming identity in the brief.
-- **Typography:** Poppins is used consistently. At the base size, h1 is `1.75rem`, h2 is `1.375rem`, h3 is `1.125rem`, body text is `1rem`, and small text is `0.875rem`. At `48em` and wider, h1 increases to `2.25rem` and h2 to `1.75rem`.
-- **Spacing:** The shared scale is `--space-2xs: 0.25rem`, `--space-xs: 0.5rem`, `--space-sm: 0.75rem`, `--space-md: 1rem`, `--space-lg: 1.5rem`, `--space-xl: 2rem`, `--space-2xl: 3rem`, and `--space-3xl: 4rem`.
-- **Images:** Global image rules prevent overflow; component rules set individual image sizing and cropping. Category images use `object-fit: cover` to fill their cards without distortion.
-- **Responsive layout:** Base styles are designed for narrow screens. `min-width` media queries progressively adjust navigation, grids, details, and forms for wider viewports.
-- **Useful actions:** Phone links use `tel:` and the footer provides a directions link, making contact and visiting more direct for local customers.
-
-## 3. Analyse the original site
-
-Before rebuilding, I inspected the original HTML, CSS, and rendered pages. The findings below identify the root cause, evidence, and specific effect on Ama's customers.
-
-### Mobile usability and local access
-
-| #   | Issue and root cause                                                                                                           | Evidence from the original website                                                                                                                                   | Impact on Ama's customers                                                                                                                                      |
-| --- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | **Fixed-width layout and columns:** The page uses fixed dimensions instead of layouts that can shrink or reflow.               | `#header`, `#banner`, and `#content` use `width: 900px`; `#main` is 610px and `#sidebar` is 240px wide.                                                              | On a phone, customers may need to scroll sideways to read the page or reach shop contact details.                                                              |
-| 2   | **No mobile viewport configuration:** The document does not define a viewport meta tag.                                        | The `<head>` has no `<meta name="viewport">`.                                                                                                                        | A phone may render the page at a wider virtual width and scale it down, making product information and links too small to read or tap comfortably.             |
-| 3   | **Small text in important content:** Product descriptions and other key text use an 11px font size.                            | Inline `font-size: 11px` styles appear in the product introduction, About section, plant-care information, and sidebar. Product cards and footer also use 11px text. | Customers reading product details, care advice, or shop information on a phone may have difficulty without zooming in.                                         |
-| 4   | **No responsive breakpoints:** The stylesheet does not adapt the layout to different screen sizes.                             | The supplied CSS contains no `@media` rules.                                                                                                                         | The navigation and product listings stay rigid on small screens, making it harder for mobile shoppers to browse the catalogue.                                 |
-| 5   | **Product images do not adapt to their containers:** Images have fixed dimensions and no responsive sizing rules.              | Product images use `width="180"` and `height="120"` in the HTML, with no CSS such as `max-width: 100%`.                                                              | On narrow screens, product images may not fit their listing areas, disrupting the layout and making items harder to compare.                                   |
-| 6   | **Referenced product image files are missing:** The original project does not include the image assets referenced by the page. | `index.html` references `images/houseplants.jpg`, `images/pots.jpg`, and `images/soil.jpg`, but the original project has no `images` folder.                         | Customers cannot see the houseplants, pots, or soil being offered, leaving them with less information when deciding what to ask Ama about or whether to visit. |
-
-### Visual identity and consistency
-
-| #   | Issue and root cause                                                                                       | Evidence from the original website                                                                                              | Impact on Ama's customers                                                                                                                                                       |
-| --- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 7   | **Inconsistent colour scheme:** The site uses several strong colours without a unified visual system.      | The header uses `#0066cc`, the banner `#009900`, the main button `#ff6600`, and hover states turn red.                          | Competing colours make pages and calls to action feel inconsistent, rather than supporting the calm, welcoming experience Ama wants customers to associate with her plant shop. |
-| 8   | **Weak heading hierarchy:** Section headings use inconsistent semantic levels and identical styling.       | The page moves from `<h1>` to `<h4>` for sections such as "What We Sell" and "About Ama"; the CSS styles `<h4>` headings alike. | Customers scanning the page may have difficulty distinguishing sections. Skipped heading levels also make section navigation less clear for screen-reader users.                |
-| 9   | **Inconsistent spacing:** Margins and padding use unrelated values rather than a consistent spacing scale. | The CSS uses values such as 4px, 5px, 8px, 10px, 12px, 15px, 20px, and 25px.                                                    | Uneven spacing can make product listings, care advice, and contact information harder for customers to scan as connected sections.                                              |
-
-### Accessibility, content, and functionality
-
-| #   | Issue and root cause                                                                                         | Evidence from the original website                                                                                               | Impact on Ama's customers                                                                                                                                               |
-| --- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 10  | **Missing useful alternative text:** Product images have generic alt text.                                   | All three product images use `alt="image"`.                                                                                      | Screen-reader users cannot tell whether an image represents houseplants, pots, or soil, so they miss product information available to sighted customers.                |
-| 11  | **Form inputs lack proper labels:** The forms rely on placeholders instead of associated `<label>` elements. | Inputs use placeholders such as "Your name" and "Email address" without matching labels.                                         | Placeholder instructions disappear as customers type, and assistive technology may not have a reliable field name to announce while they complete an enquiry.           |
-| 12  | **Duplicated enquiry forms:** Two forms offer overlapping ways to contact Ama.                               | The page has an "Ask Ama" form for a name and question, followed by a "Get In Touch" form for a name, email, phone, and message. | Customers may be unsure which form to use, while Ama's enquiries may be split between two similar contact routes.                                                       |
-| 13  | **Navigation and social links do not lead to their intended destinations.**                                  | The menu, "Shop Now," Facebook, and Instagram links use `href="#"`.                                                              | Customers cannot use these links to reach the catalogue or Ama's social media; the links remain on the current page instead of taking them to the intended destination. |
-| 14  | **Neither enquiry form submits or provides a result.**                                                       | Both buttons use `type="button"`, and `script.js` contains no form-handling code.                                                | When a customer selects "Send Question" or "Send Message," no enquiry is sent and no confirmation appears, leaving them unsure whether Ama received it.                 |
-
-## 4. Evaluate the rebuilt website
-
-The rebuild prioritizes customers' main tasks: browsing on a phone, understanding what is for sale, finding related information, and contacting or visiting Ama. These priorities are reflected in specific page and styling decisions:
-
-- **Phone browsing:** The shared `.container` uses a fluid width with a maximum width and responsive side padding. The homepage category cards begin in one column, change to two columns at `48em`, and three at `68em` (`css/layout.css` and `css/components.css`). The shop layout stacks its filter area above the products on narrow screens, then places it beside the product grid at `60em`. The shop product grid changes from two columns to three at that breakpoint. The header uses a mobile navigation toggle and switches to horizontal navigation on wider screens.
-- **Understanding products:** The shop cards show product names, prices, descriptions, and images with descriptive alternative text. Each card links to its corresponding section in `product-details.html`, where customers can read further product information and care or suitability notes.
-- **Finding information:** Shared navigation links connect the home, shop, and plant-care pages. The homepage category cards link to related catalogue products, while the skip link lets keyboard users jump directly to the main content.
-- **Keyboard access:** Visible focus indicators help keyboard users track their position as they move through interactive elements. The skip link lets them jump directly to the main content.
-- **Contacting or visiting Ama:** The header and contact area provide a `tel:` link, and the footer includes a directions link to the shop location.
-- **Consistent presentation:** Shared CSS variables define the colors, type sizes, and spacing scale. The same forest-green, sage, and warm-cream palette is used across the page components.
-
-### Verification
-
-- I checked all four pages in a browser at widths of 320px, 352px, 390px, 576px, 767px, 768px, 960px, 1088px, and 1440px. At those widths, no page had horizontal document overflow. The mobile navigation toggle appeared below 768px; horizontal navigation appeared at 768px and wider.
-- I tested keyboard focus on the skip link and mobile navigation.
-
-### Trade-offs and remaining limitations
-
-- The shop category selector, price range, and search field are visual controls only; they do not filter or search the catalogue.
-- This contact form is a front-end prototype: it validates input and shows a demo confirmation. It is not connected to a submission service, so no message is sent to Ama.
-
-## 5. Additional improvement
-
-### Dark mode
-
-The header theme toggle lets visitors switch between light and dark themes. When there is no saved choice, the page follows the operating system's colour-scheme preference. A manually selected theme is saved in local storage and retained on later visits.
-
-## Project structure
-
-```text
-amas-plant-corner/
-|-- index.html
-|-- shop.html
-|-- product-details.html
-|-- care-tips.html
-|-- css/
-|   |-- styles.css
-|   |-- tokens.css
-|   |-- layout.css
-|   `-- components.css
-|-- js/
-|   |-- script.js
-|   `-- theme.js
-|-- images/
-|   |-- products/
-|   |-- hero/
-|   |-- about/
-|   `-- category/
-|-- docs/
-|   `-- ee02/
-`-- Sketched.png
+```bash
+git clone https://github.com/David-Sedzro/the-plant-corner.git
+cd the-plant-corner
+npm ci
+npm run dev          # local dev server with hot reload
+npm run lint         # ESLint — flag likely bugs
+npm run format:check # Prettier — verify formatting
+npm run build        # production build to dist/
+npm run preview      # serve the dist/ build locally
 ```
 
-## Running locally
+---
 
-This site is plain HTML, CSS and JavaScript, so it needs no build step or dependencies.
+## 1. Setup explanation
 
-### Recommended: VS Code Live Server
+### How we chose the base site
 
-1. Clone or download the repository and open the folder in VS Code.
-2. Install the **Live Server** extension.
-3. Right-click `index.html` and choose **Open with Live Server**.
-4. The site opens at `http://127.0.0.1:5500` (also reachable as `http://localhost:5500`).
+Before configuring any tooling, we agreed on which codebase to build on, we compared both codebase and running sites and chose **this codebase ([David-Sedzro/the-plant-corner](https://github.com/David-Sedzro/the-plant-corner))** because it has a clear separation of concerns, reusable components, and a maintainable structure that any new developer can understand quickly:
 
-Live Server reloads the page automatically when you save a file.
+1. **Separation of concerns in CSS:** Styling is split into four focused files instead of one large stylesheet — `css/tokens.css` holds design tokens (`--color-primary`, `--space-2xl`, `--focus-ring-width`), `css/layout.css` defines shared page layout primitives (`.container`, `.section`, `.section--alt`), `css/components.css` styles reusable UI classes (such as `.site-header`, `.btn`, and product cards), and `css/styles.css` imports those three layers and sets base reset and typography rules.
+2. **Shared styling across four HTML pages:** The site is organised into `index.html`, `shop.html`, `product-details.html`, and `care-tips.html`. They share the same header and footer patterns, design tokens, and component classes. This maps cleanly to Vite's multi-page configuration without restructuring files.
+3. **Separated JavaScript responsibilities:** `js/theme.js` handles the saved/system color theme and theme toggle. `js/script.js` handles the homepage hero pause control and demo contact-form response. The mobile navigation uses native `<details>` markup and does not require JavaScript.
+4. **Maintainability for a team:** When one developer updates a colour token in `css/tokens.css` and another updates a component in `css/components.css` or a script in `js/`, they work in separate files. A new developer can locate where any style or script belongs without guessing.
+
+The tooling itself was set up on `feature/setup-dev-tooling` (PR #1) and reviewed before merging into `develop`, so both team members verified the configuration before building on top of it.
+
+### Project structure
+
+```
+amas-plant-corner/
+├── .github/
+│   ├── workflows/ci.yml              # GitHub Actions CI
+│   └── pull_request_template.md      # Standard PR template
+├── .husky/
+│   └── pre-commit                    # Pre-commit hook (runs lint-staged)
+├── css/
+│   ├── tokens.css                    # Design tokens (colours, spacing, type scale)
+│   ├── layout.css                    # Page container and section layout rules
+│   ├── components.css                # Reusable component styles (header, hero, cards)
+│   └── styles.css                    # CSS entry point (imports layers + base reset)
+├── dist/                             # Production build output (gitignored)
+├── docs/
+│   ├── ee01/
+│   │   └── README.md                 # EE01 project documentation
+│   ├── ee02/                         # EE02 accessibility audit and write-up
+│   └── ee03/                         # EE03 setup notes
+├── images/                           # Site images (about, category, hero, products)
+├── js/
+│   ├── theme.js                      # Dark mode — reads/writes localStorage, sets data-theme
+│   └── script.js                     # Hero pause control and demo contact-form response
+├── node_modules/                     # Installed npm packages (gitignored)
+├── .gitignore
+├── .prettierignore
+├── care-tips.html                    # Care guidance
+├── eslint.config.js
+├── index.html                        # Home page
+├── package-lock.json
+├── package.json
+├── product-details.html              # Individual product
+├── README.md
+├── shop.html                         # Shop listing
+├── Sketched.png
+└── vite.config.js
+```
+
+Splitting CSS across `tokens.css`, `layout.css`, `components.css`, and `styles.css` keeps a shared codebase maintainable: a single stylesheet quickly becomes a merge-conflict hotspot, whereas layered files make the intent of every diff immediately clear (`tokens.css` for design values, `components.css` for UI blocks).
+
+### Conventions we followed
+
+**Branches:** The reviewed PRs use `feature/<name>` and `bugfix/<name>` and target `develop`. The repository PR checklist currently lists those two prefixes. Keep it aligned with the current AmaliTech team conventions if other prefixes are approved.
+
+**Commits:** Conventional Commits format — `type(scope): subject` in the present tense, lowercase, no trailing period, under 72 characters. Examples from this project's history:
+
+```
+chore(npm): add package.json and lockfile
+chore(vite): add multi-page build config
+chore(eslint): add flat config
+ci(github): add github actions workflow
+fix(scripts): add module type to script tags
+```
+
+The setup branch had 9 commits, each covering one tool or one decision. Focused commits make reviews, `git bisect`, and reverts easier to follow; atomic commits are a useful convention, not a requirement for those Git commands to work.
+
+**Pull requests:** The PR template (`.github/pull_request_template.md`) provides a consistent structure — what the PR does, why it is needed, what changed, how it was tested, how the reviewer can test it, and whether there are breaking changes. GitHub supplies the template for new PRs, but does not enforce that contributors complete every section.
+
+---
+
+## 2. What each piece of the configuration does, and why it matters for a shared codebase
+
+### `package.json` and `package-lock.json`
+
+`package.json` lists every tool the project needs and the scripts to run them. `package-lock.json` records the exact version of every installed package — not just the direct dependencies, but their dependencies too.
+
+Without a lockfile committed to version control, two developers running `npm install` on different days can get different versions of Vite or ESLint. A bug that appears on one machine and not another is often a version mismatch. Committing `package-lock.json` means `npm ci` (used in CI) installs exactly the same packages every time, on every machine.
+
+The `"type": "module"` field tells Node.js to treat `.js` files as ES modules. This is required for `vite.config.js` to use `import` syntax, and it makes the project consistent: the same module system in the browser, in Node config files, and in scripts.
+
+### Vite — `vite.config.js`
+
+```js
+import { resolve } from "node:path";
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  input: {
+    main: resolve(import.meta.dirname, "index.html"),
+    shop: resolve(import.meta.dirname, "shop.html"),
+    product: resolve(import.meta.dirname, "product-details.html"),
+    care: resolve(import.meta.dirname, "care-tips.html"),
+  },
+});
+```
+
+Vite replaces Live Server. The difference matters for a team: Vite produces an optimised, minified `dist/` folder that any developer can verify with `npm run build`.
+
+Vite 8's `input` configuration was used to define the application's four HTML entry points for the multi-page production build. Local JavaScript files were updated to use `type="module"` script tags, enabling Vite to include them in the build pipeline. The issue was fixed in the `bugfix/add-type-module-to-scripts` branch, and the resulting build now outputs all four HTML pages and their associated JavaScript assets.
+
+### ESLint — `eslint.config.js`
+
+```js
+import { defineConfig, globalIgnores } from "eslint/config";
+import js from "@eslint/js";
+import globals from "globals";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
+
+export default defineConfig([
+  globalIgnores(["dist/", "node_modules/"]),
+  {
+    files: ["**/*.js"],
+    plugins: { js },
+    extends: ["js/recommended"],
+    languageOptions: { globals: globals.browser },
+  },
+  eslintConfigPrettier,
+]);
+```
+
+`js/recommended` enables ESLint's recommended JavaScript rules, including checks for undefined names, unreachable code, and constant conditions. It is not a type checker and does not enable every possible correctness rule. `globals.browser` tells ESLint that `document`, `window`, and `localStorage` are legitimate globals, not typos.
+
+`eslint-config-prettier` is placed last. It turns off ESLint rules that conflict with Prettier's formatting, leaving formatting checks to Prettier.
+
+`dist/` and `node_modules/` are ignored because linting generated output is pointless and slow.
+
+### Prettier — formatting
+
+Prettier is an opinionated formatter with almost no configuration surface. The team does not decide how to format code; Prettier does. This is the right trade-off for a shared codebase: style disagreements do not make it into commits, reviewers spend their attention on logic rather than indentation, and diffs show only real changes.
+
+`.prettierignore` excludes `package-lock.json` because npm generates and maintains that file. Formatting-only changes to its whitespace do not inherently break `npm ci`, but keeping generated lockfiles out of routine formatting avoids unnecessary diffs.
+
+The `format:check` script (`prettier . --check`) is used in CI and in the `check` composite script. It exits with a non-zero code if any file is not formatted, so a PR with unformatted files fails CI before a reviewer sees it.
+
+### Husky + lint-staged
+
+```
+# .husky/pre-commit
+npx lint-staged
+```
+
+```json
+"lint-staged": {
+  "*.js": ["eslint --fix", "prettier --write"],
+  "*.{html,css,json,md,yml}": "prettier --write"
+}
+```
+
+Husky runs the pre-commit hook before a commit. lint-staged runs the configured commands only on matching staged files; not the whole codebase. This keeps the hook fast: committing one `.js` file does not lint every other file in the project.
+
+The important detail is that lint-staged runs `--fix` and `--write`, not just `--check`. It auto-corrects fixable issues and stages the corrections. A commit is stopped if any configured command fails, including for errors that cannot be fixed automatically.
+
+The critical limitation is that **hooks can be bypassed** with `git commit --no-verify`. Husky prevents accidents; it does not prevent deliberate circumvention. This is exactly why CI exists.
+
+### GitHub Actions — `.github/workflows/ci.yml`
+
+```yaml
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm run build
+```
+
+CI runs on a clean Ubuntu environment with no local editor configuration or plugins. It runs `npm ci`, which removes the existing `node_modules` directory and installs the dependency tree recorded in `package-lock.json`, then runs lint, format check, and build in sequence. If a step fails, the CI check fails. Whether that blocks merging depends on the repository's branch protection or ruleset settings.
+
+The steps run sequentially. If one fails, later steps in the job do not run.
+
+`cache: npm` caches the npm download cache between runs, so subsequent CI runs do not re-download every package from the registry.
+
+---
+
+## 3. Working project setup
+
+**Pull request history:**
+
+| PR                                                            | Branch                              | Reviewer             | Outcome                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------- | ----------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [#1](https://github.com/David-Sedzro/the-plant-corner/pull/1) | `feature/setup-dev-tooling`         | Alvin Etornam Laryea | Approved and merged. The PR had 9 commits. Alvin noted the missing JavaScript in `dist/` and placeholder `npm test` script; the module-script issue was addressed in PR #2.                                                                    |
+| [#2](https://github.com/David-Sedzro/the-plant-corner/pull/2) | `bugfix/add-type-module-to-scripts` | Alvin Etornam Laryea | Alvin raised a blocking comment because the dark-mode toggle was not visible on Shop and Plant Care. Adding `type="module"` allowed the theme script to initialize on those pages. The issue was resolved, and the PR was approved and merged. |
+| [#3](https://github.com/David-Sedzro/the-plant-corner/pull/3) | `feature/add-pr-template`           | David Sedzro (me)    | I raised two non-blocking findings in a review comment. Alvin updated the template in `fd01a85`; the PR was approved and merged. Full review in §5 below.                                                                                      |
+
+- **Version control:** all source code is tracked in Git. `dist/` and `node_modules/` are in `.gitignore`. `package-lock.json` is committed.
+- **Automatic checks:** Husky is installed and configured to run `lint-staged` before each commit through a pre-commit hook. These checks can be bypassed using the `--no-verify` flag. GitHub Actions runs lint, format, and build validation on pushes and pull requests. The recorded `check` workflow runs for PRs #1, #2, and #3 completed successfully.
+- **Predictable build:** `npm run build` produces the same output on any machine. Exact dependency versions are pinned in `package-lock.json`. `npm ci` enforces that lockfile in CI.
+- **History:** branch names follow `type/short-description`. Commit messages follow `type(scope): subject`. PRs target `develop` and use the team's template.
+
+---
+
+## 4. My pull requests
+
+### PR #1 — Development tooling
+
+**Branch:** `feature/setup-dev-tooling`
+
+**Outcome:** Approved by Alvin Etornam Laryea and merged into `develop`.
+
+I added npm scripts and a lockfile, Vite, ESLint, Prettier, a Husky pre-commit hook using lint-staged, and a GitHub Actions workflow. The PR had nine focused commits. The reviewer confirmed the setup and noted two follow-ups: the production build did not yet include JavaScript because the script tags lacked `type="module"`, and `npm test` was still a placeholder. PR #2 addressed the JavaScript bundling issue; the test script remains a placeholder.
+
+**Alvin's review:** [Approved review](https://github.com/David-Sedzro/the-plant-corner/pull/1#pullrequestreview-6061220956)
+
+> **issue (blocking):** “The tooling setup looks good. The lockfile and npm scripts are in place, ESLint passes, Husky and lint-staged are configured correctly, CI runs the necessary checks, and Vite successfully generates all four HTML pages. I haven't noticed any other major issues. The only concern is that the production build is missing the JavaScript files, which could affect the site's functionality. The npm test script is still a placeholder, but I don't consider that a major issue at this stage.”
+
+The recorded GitHub Actions `check` runs for this PR succeeded. The checks covered linting, formatting, and the production build.
+
+### PR #2 — Bundle JavaScript modules and Branch protection
+
+**Branch:** `bugfix/add-type-module-to-scripts`
+
+**Outcome:** Approved by Alvin Etornam Laryea and merged into `develop`.
+
+I added `type="module"` to the local JavaScript script tags in all four HTML pages. This lets Vite process and bundle the scripts for the production build. During review, Alvin reported that the dark-mode toggle was not visible on the Shop and Plant Care pages; loading the theme script as a module resolved that issue.
+
+**Alvin's review comment:** [Blocking issue](https://github.com/David-Sedzro/the-plant-corner/pull/2#issuecomment-7212775055)
+
+> **issue (blocking): Dark mode toggle is still missing on the Shop and Plant Care pages.**
+>
+> I tested all four pages using `npm run preview`, as requested in the PR's testing instructions. However, the issue is still present on the **Shop** and **Plant Care** pages.
+>
+> On both pages, dark mode appears to be enabled automatically, but the theme toggle icon is not visible in the navbar. As a result, users have no way to switch back to light mode.
+>
+> This means the reported fix is incomplete, as the theme toggle is not functioning consistently across all four pages.
+
+After the module-script changes were verified, Alvin approved the PR.
+
+I verified the four-page production build and its JavaScript assets, previewed the pages and theme toggle, and ran lint and formatting checks. The recorded GitHub Actions `check` runs for this PR succeeded.
+
+---
+
+## 5. Code review: My pair's pull request
+
+**PR reviewed:** [PR #3 — `feature/add-pr-template`](https://github.com/David-Sedzro/the-plant-corner/pull/3) opened by [@laryea-0](https://github.com/laryea-0)
+**Comments**
+
+This PR adds `.github/pull_request_template.md` — a Markdown file GitHub loads automatically whenever anyone opens a pull request. The PR is a single-file addition with no changes to source code or configuration.
+
+---
+
+**Finding 1 — Stray "Pull Request Title" heading at the top of the template**
+**Category: non-blocking (issue)**
+
+The original template opened with a heading like `## Pull Request Title`, which would appear as literal body text inside every PR description. GitHub renders a PR's title in a dedicated field above the description; there is no mechanism for a template to populate that field. The heading is therefore noise that makes every PR description look malformed from the moment it is opened.
+
+This is non-blocking because the site works, CI passes, and the stray line is cosmetic — a reviewer can still read and act on the PR. But it is a real defect in the template: the one thing it teaches developers to do — write a title — it teaches them to do in the wrong place, so every PR silently wastes a line.
+
+Alvin removed the heading in commit `fd01a85` before the PR merged. The finding was resolved.
+
+---
+
+**Finding 2 — Template length and scope mismatch**
+**Category: non-blocking (suggestion)**
+
+The original template had approximately 30 checklist items, including sections for unit tests, links to external issue trackers, and other items this project does not use. A template only helps if people actually read it and fill it in. A 30-item checklist in a project with no test runner and no issue tracker is more likely to be cleared by habit than by thought. Checklist fatigue is a documented failure mode: the longer the list, the more items get ticked without being read.
+
+This is a suggestion, not a must-change, for two reasons. First, an over-long template does not break anything — it is better than no template at all. Second, what belongs in a team's template is a team decision, not a reviewer decision. I raised it because there is a real risk (rubber-stamping), but I did not block the PR on it.
+
+Alvin updated the template in `fd01a85` to tighten the sections. The PR was then approved and merged.
+
+---
+
+**Overall verdict: approved after updates**
+
+The PR does what it says. A pull request template committed to `.github/` is a sound workflow improvement — GitHub loads it automatically and it costs nothing once it is in place. Both issues I raised were non-blocking, and Alvin addressed them in the same PR before merge. The final template is usable and appropriate for the project's current scope.
+
+A reviewer who finds little to block is not failing to look hard enough. This was a one-file change with a clear, correct purpose. The findings I raised were genuine — one structural defect that would have made every PR look broken, one risk of reduced effectiveness over time — but neither warranted holding up the merge.
+
+---
+
+## 6. Workflow improvements: PR template and branch protection
+
+**What the problem is**
+
+Pull request descriptions in this project were inconsistent before PR #3. Without a template, some PRs had a one-line description, others had nothing at all. A reviewer looking at a PR has to guess: what was the intent? What was tested? Is there a breaking change? Time spent asking those questions is time not spent reviewing the code.
+
+An inconsistent PR history also causes a downstream problem: six months later, `git log` and the GitHub PR list become an unreliable record of what changed and why. A new developer joining the team cannot reconstruct the reasoning behind past decisions.
+
+**What was implemented**
+
+`.github/pull_request_template.md` — a Markdown file GitHub supplies as a starting point when someone opens a PR in this repository. It prompts authors to provide:
+
+1. What does this PR do?
+2. Why is this change needed?
+3. What changes were made?
+4. How was it tested?
+5. How can the reviewer test this?
+6. Are there any breaking changes?
+7. Related issue or ticket
+8. Screenshots / visual evidence
+
+The final section is a checklist: branch naming, commit format, self-review of the diff, and confirmation that no generated files or secrets are included.
+
+### Branch protection
+
+Branch protection is also enabled for `develop` through GitHub repository settings. It complements the PR template and CI by applying repository-side merge rules. The specific requirements, such as required status checks or reviews, are configured in GitHub and are not stored in this repository's files.
+
+**Who it protects**
+
+The template helps the **reviewer** by prompting for context to understand the change without reading every commit message or chasing the author for clarification. It helps the **author** remember common PR checks — branch naming, screenshots when applicable, and avoiding generated files or secrets — but it does not automatically validate these items.
+
+It also protects anyone who joins the project later. The PR history becomes a readable record of decisions, not a list of commit hashes. The template is in version control, so it cannot be lost, and it applies to every PR automatically — including from contributors who have not read this README.
+
+**Why it belongs in the project permanently**
+
+The alternative is a written convention in a document that everyone has to remember to read and follow. Documents drift. A template makes the prompts available in the PR workflow, though authors still need to complete them. The cost is one file and a few extra seconds per PR. The benefit compounds with every pull request the project ever receives.
+
+---
+
+## Further reading
+
+- [`docs/ee03/ee03-setup.md`](docs/ee03/ee03-setup.md) — development environment and team setup notes.
