@@ -20,7 +20,6 @@ if (carouselToggle && hero) {
   });
 }
 
-// form.
 const contactForm = document.querySelector(".contact-form");
 
 if (contactForm) {

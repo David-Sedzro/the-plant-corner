@@ -106,7 +106,7 @@ CI must pass before merging changes into the `develop` branch.
 
 ## Branch naming
 
-Use a short, descriptive branch name with a category prefix that explains the work:
+Use one of the branch prefixes listed in the repository's pull request checklist: `feature/` for new functionality or `bugfix/` for fixes. Add a short, descriptive name after the prefix:
 
 ```text
 <type>/<short-description>
@@ -118,7 +118,7 @@ For example:
 bugfix/type-error
 ```
 
-Use `fix/` for bug fixes, `feat/` for new functionality, and `docs/` for documentation-only changes. Keep the description lowercase and use hyphens between words, such as `fix/product-price-type`.
+Keep the description lowercase and use hyphens between words, for example `bugfix/type-error` or `feature/dark-mode-toggle`.
 
 ## Production build
 

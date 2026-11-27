@@ -22,7 +22,6 @@
     root.dataset.theme ||
     (systemColorScheme && systemColorScheme.matches ? "dark" : "light");
 
-  //
   document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.querySelector("[data-theme-toggle]");
 

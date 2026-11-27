@@ -71,7 +71,6 @@ amas-plant-corner/
 ├── product-details.html              # Individual product
 ├── README.md
 ├── shop.html                         # Shop listing
-├── Sketched.png
 └── vite.config.js
 ```
 
@@ -232,7 +231,7 @@ The steps run sequentially. If one fails, later steps in the job do not run.
 
 **Outcome:** Approved by Alvin Etornam Laryea and merged into `develop`.
 
-I added npm scripts and a lockfile, Vite, ESLint, Prettier, a Husky pre-commit hook using lint-staged, and a GitHub Actions workflow. The PR had nine focused commits. The reviewer confirmed the setup and noted two follow-ups: the production build did not yet include JavaScript because the script tags lacked `type="module"`, and `npm test` was still a placeholder. PR #2 addressed the JavaScript bundling issue; the test script remains a placeholder.
+I added npm scripts and a lockfile, Vite, ESLint, Prettier, a Husky pre-commit hook using lint-staged, and a GitHub Actions workflow. The PR had nine focused commits. The reviewer confirmed the setup and noted two follow-ups: the production build did not yet include JavaScript because the script tags lacked `type="module"`, and `npm test` was a placeholder. PR #2 addressed the JavaScript bundling issue. The placeholder test script has since been removed; the project does not currently have a test suite.
 
 **Alvin's review:** [Approved review](https://github.com/David-Sedzro/the-plant-corner/pull/1#pullrequestreview-6061220956)
 
